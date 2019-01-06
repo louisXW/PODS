@@ -1,3 +1,35 @@
 INFO:root:10-dimensional Ackley function 
 Global optimum: f(0,0,...,0) = 0 
 1-constituents problems
+INFO:root:The 0 iteration 0 simulation called objfunction
+INFO:root:The 0 iteration 1 simulation called objfunction
+INFO:root:The 0 iteration 2 simulation called objfunction
+INFO:root:The 0 iteration 3 simulation called objfunction
+INFO:root:The 1 iteration 0 simulation called objfunction
+INFO:root:The 1 iteration 1 simulation called objfunction
+INFO:root:The 1 iteration 2 simulation called objfunction
+INFO:root:The 1 iteration 3 simulation called objfunction
+INFO:root:The 2 iteration 0 simulation called objfunction
+INFO:root:The 2 iteration 1 simulation called objfunction
+INFO:root:The 2 iteration 2 simulation called objfunction
+INFO:root:The 2 iteration 3 simulation called objfunction
+INFO:root:The 3 iteration 0 simulation called objfunction
+INFO:root:The 3 iteration 2 simulation called objfunction
+INFO:root:The 3 iteration 3 simulation called objfunction
+INFO:root:The 3 iteration 1 simulation called objfunction
+INFO:root:The 4 iteration 0 simulation called objfunction
+INFO:root:The 4 iteration 1 simulation called objfunction
+INFO:root:The 4 iteration 2 simulation called objfunction
+INFO:root:The 4 iteration 3 simulation called objfunction
+INFO:root:The 5 iteration 1 simulation called objfunction
+INFO:root:The 5 iteration 0 simulation called objfunction
+INFO:root:The 5 iteration 2 simulation called objfunction
+INFO:root:The 5 iteration 3 simulation called objfunction
+INFO:root:The 6 iteration 0 simulation called objfunction
+INFO:root:The 6 iteration 1 simulation called objfunction
+INFO:root:The 6 iteration 2 simulation called objfunction
+INFO:root:The 6 iteration 3 simulation called objfunction
+INFO:root:The 7 iteration 0 simulation called objfunction
+INFO:root:The 7 iteration 1 simulation called objfunction
+INFO:root:The 7 iteration 2 simulation called objfunction
+INFO:root:The 7 iteration 3 simulation called objfunction

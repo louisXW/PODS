@@ -4,13 +4,13 @@
 .. moduleauthor:: XiaWei
 """
 import os
-from algorithms.pySOT.experimental_design import SymmetricLatinHypercube
-from algorithms.pySOT.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
-from algorithms.pySOT.rbf import RBFInterpolant, CubicKernel, LinearTail
-from algorithms.pySOT.adaptive_sampling import CandidateDYCORS
-from algorithms.poap.controller import MultiproController
+from opdelft.algorithms.pySOT.experimental_design import SymmetricLatinHypercube
+from opdelft.algorithms.pySOT.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
+from opdelft.algorithms.pySOT.rbf import RBFInterpolant, CubicKernel, LinearTail
+from opdelft.algorithms.pySOT.adaptive_sampling import CandidateDYCORS
+from opdelft.algorithms.poap.controller import MultiproController
 import logging
-from problems.test_functions import *
+from opdelft.problems.test_functions import *
 
 def obj_func(paramters):
     """
