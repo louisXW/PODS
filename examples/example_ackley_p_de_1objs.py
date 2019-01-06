@@ -1,6 +1,6 @@
-from op_delf.algorithms.differential_evoluation._differentialevolution import *
+from opdelft.algorithms.differential_evoluation._differentialevolution import *
 # from ObjectlongbothPDE import *
-from op_delf.problems.test_functions import *
+from opdelft.problems.test_functions import *
 import os.path
 import logging
 import os
