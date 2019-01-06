@@ -6,8 +6,8 @@ import traceback
 import sys
 import logging
 
-from util.goodness_of_fit_metrics import Metrics
-from util.post_analysis import Postprocessing
+from opdelft.util.goodness_of_fit_metrics import Metrics
+from opdelft.util.post_analysis import Postprocessing
 from threading import Lock
 
 
