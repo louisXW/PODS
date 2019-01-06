@@ -9,7 +9,11 @@ Welcome to opdelft's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
+   
+   install
+   quickstart
+   tutorials/index
+   examples/index
 
 
 Indices and tables
