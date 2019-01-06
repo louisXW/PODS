@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/louisXW/opdelft",
     packages=setuptools.find_packages(),
-    install_requires=["numpy", "poap==0.1.26"],
+    install_requires=["numpy", "pysot==0.1.36"],
     classifiers=[
         "Programming Language :: Python :: 2",
         "License :: OSI Approved :: MIT License",
