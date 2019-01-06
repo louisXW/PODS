@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1a5f6d0-0aa5-45d4-b3f8-5f6c9755424b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/result/pysot_result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/result/pysot_result.txt" afterDir="false" />
-    </list>
+    <list default="true" id="b1a5f6d0-0aa5-45d4-b3f8-5f6c9755424b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +102,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24980299" />
