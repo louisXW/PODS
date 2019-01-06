@@ -23,7 +23,7 @@ def obj_func(paramters):
         simid and iterid is used control a batch of simulations running simultaneously in each iteration.
     :return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)
     """
-    data = Ackley_1obj(dim=10) #Initializaiton for the problem class
+    data = Ackley_2obj(dim=10) #Initializaiton for the problem class
     x, simid, iterid = paramters
     simiter = iterid
     simid = simid
@@ -70,7 +70,7 @@ def main():
     nsamples = nthreads
 
     # (1) Initilize the Optimization problem
-    data = Ackley_1obj(dim=10)
+    data = Ackley_2obj(dim=10)
     logging.info(data.info)
 
     # (2) Experimental design

@@ -68,8 +68,8 @@ class delft3d_1objs:
         """ This section to launch the simulation. The code shown here is running the delft3d under Linux """
 
         try:
-            cmd = './run_flow2d3d.sh'
-            subprocess.Popen(cmd, cwd=workingdir).wait()
+           cmd = './run_flow2d3d.sh'
+           subprocess.Popen(cmd, cwd=workingdir).wait()
         except:
             exc_type, exc_value, exc_traceback = sys.exc_info()
             traceback.print_exception(exc_type, exc_value, exc_traceback, limit=2, file=sys.stdout)
@@ -135,10 +135,10 @@ class delft3d_1objs:
         file_copy = fp.readlines()
         for i in range(len(par_linenum)):
             par = "{:.7e}".format(x[i])
-            str1 = file_copy[par_linenum[i]]
+            str1 = file_copy[par_linenum[i]-1]
             str2 = str1.split()
             str3 = str2[0] + ' ' + str2[1] + '  ' + str(par) + '\n'
-            file_copy[par_linenum[i]] = str3
+            file_copy[par_linenum[i]-1] = str3
         fp.close()
         fp = open(workingdir + "/f34.mdf", "wb")
         for item in file_copy:
@@ -310,10 +310,10 @@ class delft3d_2objs:
         file_copy = fp.readlines()
         for i in range(len(par_linenum)):
             par = "{:.7e}".format(x[i])
-            str1 = file_copy[par_linenum[i]]
+            str1 = file_copy[par_linenum[i]-1]
             str2 = str1.split()
             str3 = str2[0] + ' ' + str2[1] + '  ' + str(par) + '\n'
-            file_copy[par_linenum[i]] = str3
+            file_copy[par_linenum[i]-1] = str3
         fp.close()
         fp = open(workingdir + "/f34.mdf", "wb")
         for item in file_copy:

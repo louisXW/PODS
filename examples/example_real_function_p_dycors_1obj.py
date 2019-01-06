@@ -25,6 +25,7 @@ def obj_func(paramters):
     :return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)
     """
     data = delft3d_1objs(dim=4) #Initializaiton for the problem class
+    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
     x, simid, iterid = paramters
     simiter = iterid
     simid = simid
@@ -61,18 +62,18 @@ def main():
     fp.close()
 
     # -----------set the threads and budget-----------------#
-    nthreads = 10
+    nthreads = 4
     maxeval = 80
     nsamples = nthreads
 
     # (1) Initilize the Optimization problem
     data = delft3d_1objs(dim=4)
     logging.info(data.info)
-    data.home_dir = './'
+    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
 
     # (2) Experimental design
     # Use a symmetric Latin hypercube with 2d + 1 samples
-    exp_des = SymmetricLatinHypercube(dim=data.dim, npts=20)
+    exp_des = SymmetricLatinHypercube(dim=data.dim, npts=12)
 
     # (3) Surrogate model
     # Use a cubic RBF interpolant with a linear tail

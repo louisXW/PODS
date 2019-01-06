@@ -1,35 +1,55 @@
-INFO:root:10-dimensional Ackley function 
-Global optimum: f(0,0,...,0) = 0 
-1-constituents problems
-INFO:root:The 0 iteration 0 simulation called objfunction
-INFO:root:The 0 iteration 1 simulation called objfunction
-INFO:root:The 0 iteration 2 simulation called objfunction
-INFO:root:The 0 iteration 3 simulation called objfunction
+INFO:root:4 Ansoulate error function 
+Global optimum: f(0,0,...,0) = 0
+INFO:opdelft.algorithms.pySOT.sot_sync_strategies:=== Start ===
 INFO:root:The 1 iteration 0 simulation called objfunction
 INFO:root:The 1 iteration 1 simulation called objfunction
+INFO:root:0 iteration 1 evaluation: finished modify the coefficient file
 INFO:root:The 1 iteration 2 simulation called objfunction
 INFO:root:The 1 iteration 3 simulation called objfunction
-INFO:root:The 2 iteration 0 simulation called objfunction
-INFO:root:The 2 iteration 1 simulation called objfunction
-INFO:root:The 2 iteration 2 simulation called objfunction
-INFO:root:The 2 iteration 3 simulation called objfunction
-INFO:root:The 3 iteration 0 simulation called objfunction
-INFO:root:The 3 iteration 2 simulation called objfunction
-INFO:root:The 3 iteration 3 simulation called objfunction
-INFO:root:The 3 iteration 1 simulation called objfunction
-INFO:root:The 4 iteration 0 simulation called objfunction
-INFO:root:The 4 iteration 1 simulation called objfunction
-INFO:root:The 4 iteration 2 simulation called objfunction
-INFO:root:The 4 iteration 3 simulation called objfunction
-INFO:root:The 5 iteration 1 simulation called objfunction
-INFO:root:The 5 iteration 0 simulation called objfunction
-INFO:root:The 5 iteration 2 simulation called objfunction
-INFO:root:The 5 iteration 3 simulation called objfunction
-INFO:root:The 6 iteration 0 simulation called objfunction
-INFO:root:The 6 iteration 1 simulation called objfunction
-INFO:root:The 6 iteration 2 simulation called objfunction
-INFO:root:The 6 iteration 3 simulation called objfunction
-INFO:root:The 7 iteration 0 simulation called objfunction
-INFO:root:The 7 iteration 1 simulation called objfunction
-INFO:root:The 7 iteration 2 simulation called objfunction
-INFO:root:The 7 iteration 3 simulation called objfunction
+INFO:root:2 iteration 1 evaluation: finished modify the coefficient file
+INFO:root:1 iteration 1 evaluation: finished modify the coefficient file
+INFO:root:3 iteration 1 evaluation: finished modify the coefficient file
+ERROR:root:Trackback Error:1 iteration 0 evaluation
+Traceback (most recent call last):
+  File "/Users/xiawei/Desktop/opdelft/opdelft/problems/real_functions.py", line 72, in delft3d_flow
+    subprocess.Popen(cmd, cwd=workingdir).wait()
+  File "//anaconda/lib/python2.7/subprocess.py", line 711, in __init__
+    errread, errwrite)
+  File "//anaconda/lib/python2.7/subprocess.py", line 1343, in _execute_child
+    raise child_exception
+OSError: [Errno 13] Permission denied
+INFO:root:The 2 iteration 4 simulation called objfunction
+ERROR:root:Trackback Error:1 iteration 2 evaluation
+Traceback (most recent call last):
+  File "/Users/xiawei/Desktop/opdelft/opdelft/problems/real_functions.py", line 72, in delft3d_flow
+    subprocess.Popen(cmd, cwd=workingdir).wait()
+  File "//anaconda/lib/python2.7/subprocess.py", line 711, in __init__
+    errread, errwrite)
+  File "//anaconda/lib/python2.7/subprocess.py", line 1343, in _execute_child
+    raise child_exception
+OSError: [Errno 13] Permission denied
+INFO:root:The 2 iteration 5 simulation called objfunction
+INFO:root:The 2 iteration 6 simulation called objfunction
+INFO:root:The 2 iteration 7 simulation called objfunction
+INFO:root:The 3 iteration 8 simulation called objfunction
+INFO:root:The 3 iteration 9 simulation called objfunction
+INFO:root:The 3 iteration 10 simulation called objfunction
+ERROR:root:Trackback Error:1 iteration 1 evaluation
+Traceback (most recent call last):
+  File "/Users/xiawei/Desktop/opdelft/opdelft/problems/real_functions.py", line 72, in delft3d_flow
+    subprocess.Popen(cmd, cwd=workingdir).wait()
+  File "//anaconda/lib/python2.7/subprocess.py", line 711, in __init__
+    errread, errwrite)
+  File "//anaconda/lib/python2.7/subprocess.py", line 1343, in _execute_child
+    raise child_exception
+OSError: [Errno 13] Permission denied
+INFO:root:The 3 iteration 11 simulation called objfunction
+ERROR:root:Trackback Error:1 iteration 3 evaluation
+Traceback (most recent call last):
+  File "/Users/xiawei/Desktop/opdelft/opdelft/problems/real_functions.py", line 72, in delft3d_flow
+    subprocess.Popen(cmd, cwd=workingdir).wait()
+  File "//anaconda/lib/python2.7/subprocess.py", line 711, in __init__
+    errread, errwrite)
+  File "//anaconda/lib/python2.7/subprocess.py", line 1343, in _execute_child
+    raise child_exception
+OSError: [Errno 13] Permission denied
