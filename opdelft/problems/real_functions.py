@@ -25,7 +25,7 @@ class delft3d_1objs:
         self.runid = 0
         self.simlen = 365  # the simlutation length unit /day
         self.lock = Lock()
-        self.exp_iteration = 1  # The number of iteration to finish the initial experimental design
+        self.exp_iteration = 3  # The number of iteration to finish the initial experimental design
         self.exp_simid = []
         self.no_sub_objs = 1
         self.home_dir = ''
@@ -33,6 +33,7 @@ class delft3d_1objs:
     def objfunction(self, x, simid, simiter):
         simid = simid
         simiter = simiter
+        print ("current folder", self.home_dir)
         if len(x) != self.dim:
             raise ValueError('Dimension mismatch')
         logging.info('The %d iteration %d simulation called objfunction' % (simiter, simid))
