@@ -608,15 +608,24 @@ class SyncStrategyNoConstraintsMutipro(BaseStrategy):
             self.iteration = j // self.nsamples + 1        #Modified 2017 09 18
             # proposal = self.propose_eval(np.copy(start_sample[j, :]), j, self.iteration)    #Modified 2017 09 18
             params.append(np.copy(start_sample[j, :]))
-            simid.append(j)
+            simid.append(j % self.nsamples)
             genid.append(self.iteration)
 
         nprocessors = min(self.nsamples, multiprocessing.cpu_count())
-        pool = multiprocessing.Pool(nprocessors)
+       # pool = multiprocessing.Pool(nprocessors)
 
-        paramters = zip(params, simid, genid)
-        objfuns = pool.map(self.obj_func, paramters)
-        self.on_complete(objfuns, params)
+        for batch_id in range(0, min(start_sample.shape[0], self.maxeval - self.numeval) // nprocessors):
+            batch_first = batch_id * nprocessors
+            batch_last = (batch_id + 1) * nprocessors
+
+            paramters = zip(params[batch_first: batch_last], simid[batch_first: batch_last], genid[batch_first: batch_last])
+            print (paramters)
+            pool = multiprocessing.Pool(nprocessors)
+            objfuns = pool.map(self.obj_func, paramters)
+            pool.terminate()
+	   # pool.join()
+	    # energies = self.func(params, *self.args)
+            self.on_complete(objfuns, params[batch_first: batch_last])
 
         if self.extra is not None:
             self.sampling.init(np.vstack((start_sample, self.extra)), self.fhat, self.maxeval - self.numeval)
