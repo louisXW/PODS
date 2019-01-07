@@ -27,9 +27,9 @@ def obj_func(paramters):
     data = delft3d_1objs(dim=4) #Initializaiton for the problem class
     data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
     x, simid, iterid = paramters
-    simiter = iterid
     simid = simid
-    result = data.objfunction(x, simid, simiter)
+    iterid = iterid
+    result = data.objfunction(x, simid, iterid)
     return result
 
 def main():

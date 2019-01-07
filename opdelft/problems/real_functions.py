@@ -39,26 +39,12 @@ class delft3d_1objs:
             raise ValueError('Dimension mismatch')
         logging.info('The %d iteration %d simulation called objfunction' % (iterid_loc, simid_loc))
 
-        logging.info('before use the loc %s in iteration %s' % (simid_loc, iterid_loc))
-
-        # if iterid_loc <= self.exp_iteration & iterid_loc > 1:
-        #     """ The part of code only take effect when the number of iterations to
-        #     finish the initial experimental desgin larger than 1"""
-        #     with self.lock:
-        #         simid_loc = self.exp_simid[0]
-        #         self.exp_simid.pop(0)
-
-        logging.info('after use the loc %s in iteration %s' % (simid_loc, iterid_loc))
 
         sub_objs = self.delft3d_flow(x, simid_loc, iterid_loc)
         parms = x.tolist()
         fp = open(self.home_dir + "/result/pysot_result.txt", "a")
         fp.write("%s\t%s\t%s\t@%s\n" % (iterid_loc, simid_loc, sub_objs, parms))
         fp.close()
-
-        # if iterid_loc < self.exp_iteration:
-        #     with self.lock:
-        #         self.exp_simid.append(simid_loc)
 
         return sub_objs
 
@@ -72,13 +58,7 @@ class delft3d_1objs:
         A simple example of modify 4 parameters [Vicouv, Dicouv, Vicoww, Dicoww] for the coefficient file f34.mdf
          is shown inside the modify_coefficient() function """
 
-        print ('print something')
-
-        print ('modify coefficient %s' % iterid_lloc)
-
         self.modify_coefficient(x, simid_lloc, iterid_lloc)
-
-        print ('after modify coefficient %s' %iterid_lloc)
 
         # ====================================running simulation====================================#
         """ This section to launch the simulation. The code shown here is running the delft3d under Linux """

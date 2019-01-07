@@ -2,15 +2,13 @@ from opdelft.algorithms.differential_evoluation._differentialevolution import *
 from opdelft.problems.real_functions import *
 import os
 
-def upr_flow(paramters):
+def obj_func(paramters):
 
-    data = delft3d_1objs(dim=9)
-    x, simid, genid = paramters
-    simiter = genid
+    data = delft3d_1objs(dim=4)
+    x, simid, iterid = paramters
     simid = simid
-    print "this is %d iteration %d simulation" % (simiter, simid)
-    result = data.objfunction(x, simid, simiter)
-    print result
+    iterid = iterid
+    result = data.objfunction(x, simid, iterid)
     return result
 
 if __name__ == '__main__':
@@ -41,7 +39,12 @@ if __name__ == '__main__':
     fp = open("./result/pde_result.txt", "a")
     fp.write("Iteration\tSimID\tObj\tParmaters\n")
     fp.close()
-    bounds = [(0.1, 2.0), (0.1, 1.0), (0.1, 1.0), (0, 0.005), (0, 0.005), (0, 0.05), (0.001, 0.002), (0.001, 0.002), (0.02, 0.03)]
-    result = differential_evolution(upr_flow, bounds, parallel=True, maxiter= 7, popsize=24, tol=0, init='given')
+
+    data = delft3d_1objs(dim=4)
+    logging.info(data.info)
+    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
+
+    bounds = [(0.1, 1.0), (0.1, 1.0), (0.0, 0.005), (0, 0.005)]
+    result = differential_evolution(obj_func,data, bounds, parallel=True, maxiter= 7, popsize=4, tol=0, init='latinhypercube')
     print  result.x, result.fun
 
