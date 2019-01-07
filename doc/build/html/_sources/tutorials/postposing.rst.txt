@@ -6,3 +6,5 @@ Postposing
 
 .. toctree::
    :maxdepth: 1
+   
+   convert_his2dat
