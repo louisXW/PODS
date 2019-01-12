@@ -2,7 +2,7 @@
 
 ## About
 
-An optimization toolbox for computing expensive environmental models (e.g. Delft3D models). The toolbox coupling advanced optimizaiton method with real problems. 
+An optimization toolbox for computing expensive environmental models (e.g. Delft3D models). The toolbox coupling advanced optimizaiton method with real problems. The documentation of opdelft refer to https://louisxw.github.io/opdelft/
 
 ## Install
 
