@@ -16,12 +16,14 @@ You will need to have pySOT (0.1.36) installed. Other python module like (poap, 
 
 To install the pySOT (0.1.36) package with conda run one of the following:
 
-	.. code-block:: bash
+```
 
 		conda install -c conda-forge pysot
-
+```
+or
+```
 		conda install -c conda-forge/label/gcc7 pysot
-
+```
 
 pySOT is a open source toolbox is for optimization of computationally expensive black-box objective functions. 
 more information about pySOT refer to: https://pysot.readthedocs.io/en/latest/index.html
