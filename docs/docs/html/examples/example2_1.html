@@ -1,0 +1,371 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Single Objective Problem &mdash; opdelft 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="opdelft 0.0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Calibrate Delft-FLOW Problem with DYCORS in Parallel" href="example2.html"/>
+        <link rel="next" title="Use Dynamically Normalized Objective Function" href="example2_2.html"/>
+        <link rel="prev" title="Calibrate Delft-FLOW Problem with DYCORS in Parallel" href="example2.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> opdelft
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install opdelft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="example1.html">Calibrate Delft3D-FLOW Problem with DYCORS in serial</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="example2.html">Calibrate Delft-FLOW Problem with DYCORS in Parallel</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Single Objective Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example2_2.html">Use Dynamically Normalized Objective Function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="example3.html">Optimize Delft-FLOW with Parallel DE</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">opdelft</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Examples</a> &raquo;</li>
+        
+          <li><a href="example2.html">Calibrate Delft-FLOW Problem with DYCORS in Parallel</a> &raquo;</li>
+        
+      <li>Single Objective Problem</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/examples/example2_1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="example2_2.html" class="btn btn-neutral float-right" title="Use Dynamically Normalized Objective Function" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="example2.html" class="btn btn-neutral" title="Calibrate Delft-FLOW Problem with DYCORS in Parallel" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="single-objective-problem">
+<h1>Single Objective Problem<a class="headerlink" href="#single-objective-problem" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.experimental_design</span> <span class="kn">import</span> <span class="n">SymmetricLatinHypercube</span>
+<span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.sot_sync_strategies</span> <span class="kn">import</span> <span class="n">SyncStrategyNoConstraintsMutipro</span>
+<span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.rbf</span> <span class="kn">import</span> <span class="n">RBFInterpolant</span><span class="p">,</span> <span class="n">CubicKernel</span><span class="p">,</span> <span class="n">LinearTail</span>
+<span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.adaptive_sampling</span> <span class="kn">import</span> <span class="n">CandidateDYCORS</span>
+
+<span class="kn">from</span> <span class="nn">opdelft.algorithms.poap.controller</span> <span class="kn">import</span> <span class="n">MultiproController</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">opdelft.problems.real_functions</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>def obj_func(paramters):</dt>
+<dd><p class="first">“””
+The function for objective function evaluation.
+:param paramters: A tuple (x, simid, iterid)</p>
+<blockquote>
+<div>x: the dim dimensional parameter vector
+simid: the index of simulation ID in each iteration
+iterid: the index of iteration ID
+simid and iterid is used control a batch of simulations running simultaneously in each iteration.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">the objective function value [subobj1, subobj2] (a list of multiple sub objectives)</td>
+</tr>
+</tbody>
+</table>
+<p class="last">“””
+data = delft3d_1objs(dim=4) #Initializaiton for the problem class
+data.home_dir = ‘/Users/xiawei/Desktop/opdelft/examples/’
+x, simid, iterid = paramters
+simid = simid
+iterid = iterid
+result = data.objfunction(x, simid, iterid)
+return result</p>
+</dd>
+<dt>def main():</dt>
+<dd><p class="first"># ———–Initilizae logging—————–#
+if not os.path.exists(“./logfiles”):</p>
+<blockquote>
+<div>os.makedirs(“logfiles”)</div></blockquote>
+<dl class="docutils">
+<dt>if os.path.exists(“./logfiles/test_simple.log”):</dt>
+<dd>os.remove(“./logfiles/test_simple.log”)</dd>
+<dt>logging.basicConfig(filename=”./logfiles/test_simple.log”,</dt>
+<dd>level=logging.INFO)</dd>
+</dl>
+<p># ———–Initilizae result saving—————–#
+if not os.path.exists(“./result”):</p>
+<blockquote>
+<div><p>os.makedirs(“result”)</p>
+<p>“”” histroy_data folder is needed when you need to
+save the simultion output of each evaluation”“”</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>if os.path.exists(“./result/history_data”):</dt>
+<dd>os.rmdir(“./result/history_data”)</dd>
+<dt>if not os.path.exists(“./result/history_data”):</dt>
+<dd><p class="first">os.makedirs(“./result/history_data”)</p>
+<p class="last">“”” pysot_tesult.txt file is for saving the objective
+function value and parameter vector of each evaluations”“”</p>
+</dd>
+<dt>if os.path.exists(“./result/pysot_result.txt”):</dt>
+<dd>os.remove(“./result/pysot_result.txt”)</dd>
+</dl>
+<p>fp = open(“./result/pysot_result.txt”, “a”)
+fp.write(“IterationtSimIDtObjtParmatersn”)
+fp.close()</p>
+<p># ———–set the threads and budget—————–#
+nthreads = 4
+maxeval = 80
+nsamples = nthreads</p>
+<p># (1) Initilize the Optimization problem
+data = delft3d_1objs(dim=4)
+logging.info(data.info)
+data.home_dir = ‘/Users/xiawei/Desktop/opdelft/examples/’</p>
+<p># (2) Experimental design
+# Use a symmetric Latin hypercube with 2d + 1 samples
+exp_des = SymmetricLatinHypercube(dim=data.dim, npts=12)</p>
+<p># (3) Surrogate model
+# Use a cubic RBF interpolant with a linear tail
+surrogate = RBFInterpolant(kernel=CubicKernel, tail=LinearTail, maxp=maxeval)</p>
+<p># (4) Adaptive sampling
+adapt_samp = CandidateDYCORS(data=data, numcand=1000 * data.dim)</p>
+<p># (5) Use the multiprocessing-based sychronous strategy without non-bound constraints
+strategy = SyncStrategyNoConstraintsMutipro(obj_func,</p>
+<blockquote>
+<div>worker_id=0, data=data, maxeval=maxeval, nsamples=nsamples,
+exp_design=exp_des, response_surface=surrogate,
+sampling_method=adapt_samp)</div></blockquote>
+<p># (6) Use the multiprocessing-based sychronous controller
+controller = MultiproController()
+controller.strategy = strategy</p>
+<p class="last"># Run the optimization strategy
+result = controller.run()
+print “result”, result</p>
+</dd>
+<dt>if __name__ == “__main__”:</dt>
+<dd>main()</dd>
+</dl>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="example2_2.html" class="btn btn-neutral float-right" title="Use Dynamically Normalized Objective Function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="example2.html" class="btn btn-neutral" title="Calibrate Delft-FLOW Problem with DYCORS in Parallel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Xia Wei.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>
