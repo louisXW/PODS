@@ -48,33 +48,32 @@ There are two options to install opdelft
 
 |  1.1. Clone the repository:
 
-	.. code-block:: bash
-	
+```	
 		git clone https://github.com/louisXW/opdelft.git
+```
 
 |  1.2. Navigate to the folder with setup.py file:
 	
-	.. code-block:: bash
-	
+```	
 		cd opdelft/opdelft
-	
+```
+
 |  1.3. Install opdelft with setup.py if you have admister root
 
-	.. code-block:: bash
-	
-		python setup.py install
-
+```	
+		python setup.py install		
+```
 |  1.4. Most cases you might work on a remote workstation without root. Install opdelft with setup.py locally
 
-	.. code-block:: bash
-	
+```	
 		python setup.py install --user
+```
 	
 2. install with pip (option avaiable onece the repository is public)
 
-	.. code-block:: bash
-	
+```	
 		pip install opdelft	
+```
 	
 
 
