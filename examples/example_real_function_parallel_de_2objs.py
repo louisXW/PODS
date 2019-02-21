@@ -4,10 +4,11 @@ import os
 
 def obj_func(paramters):
 
-    data = delft3d_1objs(dim=4)
+    data = delft3d_2objs(dim=4)
     x, simid, iterid = paramters
     simid = simid
     iterid = iterid
+    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
     result = data.objfunction(x, simid, iterid)
     return result
 
@@ -40,7 +41,7 @@ if __name__ == '__main__':
     fp.write("Iteration\tSimID\tObj\tParmaters\n")
     fp.close()
 
-    data = delft3d_1objs(dim=4)
+    data = delft3d_2objs(dim=4)
     logging.info(data.info)
     data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
 

@@ -183,110 +183,78 @@
            <div itemprop="articleBody">
             
   <div class="section" id="single-objective-problem">
-<h1>Single Objective Problem<a class="headerlink" href="#single-objective-problem" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.experimental_design</span> <span class="kn">import</span> <span class="n">SymmetricLatinHypercube</span>
-<span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.sot_sync_strategies</span> <span class="kn">import</span> <span class="n">SyncStrategyNoConstraintsMutipro</span>
-<span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.rbf</span> <span class="kn">import</span> <span class="n">RBFInterpolant</span><span class="p">,</span> <span class="n">CubicKernel</span><span class="p">,</span> <span class="n">LinearTail</span>
-<span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.adaptive_sampling</span> <span class="kn">import</span> <span class="n">CandidateDYCORS</span>
+<span id="example2-1"></span><h1>Single Objective Problem<a class="headerlink" href="#single-objective-problem" title="Permalink to this headline">¶</a></h1>
+<p>This is an demo to use the DYCORS in parallel for the calibraiton of the Delft3D problem with Single Objective Problem. The experiment setting is the same with example in <a class="reference internal" href="example1.html#example1"><span class="std std-ref">Calibrate Delft3D-FLOW Problem with DYCORS in serial</span></a>. Users just need to change the parameter nthreads to be the number of parallel processors that users want to use.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+        <span class="c1"># -----------Initilizae logging-----------------#</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./logfiles&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;logfiles&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./logfiles/test_simple.log&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;./logfiles/test_simple.log&quot;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;./logfiles/test_simple.log&quot;</span><span class="p">,</span>
+                                                <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">opdelft.algorithms.poap.controller</span> <span class="kn">import</span> <span class="n">MultiproController</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">from</span> <span class="nn">opdelft.problems.real_functions</span> <span class="kn">import</span> <span class="o">*</span>
+        <span class="c1"># -----------Initilizae result saving-----------------#</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./result&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;result&quot;</span><span class="p">)</span>
+
+                <span class="sd">&quot;&quot;&quot; histroy_data folder is needed when you need to</span>
+<span class="sd">                save the simultion output of each evaluation&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./result/history_data&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">&quot;./result/history_data&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./result/history_data&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;./result/history_data&quot;</span><span class="p">)</span>
+
+                <span class="sd">&quot;&quot;&quot; pysot_tesult.txt file is for saving the objective</span>
+<span class="sd">                function value and parameter vector of each evaluations&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./result/pysot_result.txt&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;./result/pysot_result.txt&quot;</span><span class="p">)</span>
+
+        <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./result/pysot_result.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Iteration</span><span class="se">\t</span><span class="s2">SimID</span><span class="se">\t</span><span class="s2">Obj</span><span class="se">\t</span><span class="s2">Parmaters</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="c1"># -----------set the threads and budget-----------------#</span>
+        <span class="n">nthreads</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># set this to the nubmer of parallel processors that users want to use.</span>
+        <span class="n">maxeval</span> <span class="o">=</span> <span class="mi">80</span>
+        <span class="n">nsamples</span> <span class="o">=</span> <span class="n">nthreads</span>
+
+        <span class="c1"># (1) Initilize the Optimization problem</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">delft3d_1objs</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">home_dir</span> <span class="o">=</span> <span class="s1">&#39;/Users/xiawei/Desktop/opdelft/examples/&#39;</span>
+
+        <span class="c1"># (2) Experimental design</span>
+        <span class="c1"># Use a symmetric Latin hypercube with 2d + 1 samples</span>
+        <span class="n">exp_des</span> <span class="o">=</span> <span class="n">SymmetricLatinHypercube</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">dim</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+        <span class="c1"># (3) Surrogate model</span>
+        <span class="c1"># Use a cubic RBF interpolant with a linear tail</span>
+        <span class="n">surrogate</span> <span class="o">=</span> <span class="n">RBFInterpolant</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">CubicKernel</span><span class="p">,</span> <span class="n">tail</span><span class="o">=</span><span class="n">LinearTail</span><span class="p">,</span> <span class="n">maxp</span><span class="o">=</span><span class="n">maxeval</span><span class="p">)</span>
+
+        <span class="c1"># (4) Adaptive sampling</span>
+        <span class="n">adapt_samp</span> <span class="o">=</span> <span class="n">CandidateDYCORS</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">numcand</span><span class="o">=</span><span class="mi">1000</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+
+        <span class="c1"># (5) Use the multiprocessing-based sychronous strategy without non-bound constraints</span>
+        <span class="n">strategy</span> <span class="o">=</span> <span class="n">SyncStrategyNoConstraintsMutipro</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span>
+                                                                                                <span class="n">worker_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">maxeval</span><span class="o">=</span><span class="n">maxeval</span><span class="p">,</span> <span class="n">nsamples</span><span class="o">=</span><span class="n">nsamples</span><span class="p">,</span>
+                                                                                                <span class="n">exp_design</span><span class="o">=</span><span class="n">exp_des</span><span class="p">,</span> <span class="n">response_surface</span><span class="o">=</span><span class="n">surrogate</span><span class="p">,</span>
+                                                                                                <span class="n">sampling_method</span><span class="o">=</span><span class="n">adapt_samp</span><span class="p">)</span>
+
+        <span class="c1"># (6) Use the multiprocessing-based sychronous controller</span>
+        <span class="n">controller</span> <span class="o">=</span> <span class="n">MultiproController</span><span class="p">()</span>
+        <span class="n">controller</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">strategy</span>
+
+        <span class="c1"># Run the optimization strategy</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="k">print</span> <span class="s2">&quot;result&quot;</span><span class="p">,</span> <span class="n">result</span>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+   <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>def obj_func(paramters):</dt>
-<dd><p class="first">“””
-The function for objective function evaluation.
-:param paramters: A tuple (x, simid, iterid)</p>
-<blockquote>
-<div>x: the dim dimensional parameter vector
-simid: the index of simulation ID in each iteration
-iterid: the index of iteration ID
-simid and iterid is used control a batch of simulations running simultaneously in each iteration.</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">return:</th><td class="field-body">the objective function value [subobj1, subobj2] (a list of multiple sub objectives)</td>
-</tr>
-</tbody>
-</table>
-<p class="last">“””
-data = delft3d_1objs(dim=4) #Initializaiton for the problem class
-data.home_dir = ‘/Users/xiawei/Desktop/opdelft/examples/’
-x, simid, iterid = paramters
-simid = simid
-iterid = iterid
-result = data.objfunction(x, simid, iterid)
-return result</p>
-</dd>
-<dt>def main():</dt>
-<dd><p class="first"># ———–Initilizae logging—————–#
-if not os.path.exists(“./logfiles”):</p>
-<blockquote>
-<div>os.makedirs(“logfiles”)</div></blockquote>
-<dl class="docutils">
-<dt>if os.path.exists(“./logfiles/test_simple.log”):</dt>
-<dd>os.remove(“./logfiles/test_simple.log”)</dd>
-<dt>logging.basicConfig(filename=”./logfiles/test_simple.log”,</dt>
-<dd>level=logging.INFO)</dd>
-</dl>
-<p># ———–Initilizae result saving—————–#
-if not os.path.exists(“./result”):</p>
-<blockquote>
-<div><p>os.makedirs(“result”)</p>
-<p>“”” histroy_data folder is needed when you need to
-save the simultion output of each evaluation”“”</p>
-</div></blockquote>
-<dl class="docutils">
-<dt>if os.path.exists(“./result/history_data”):</dt>
-<dd>os.rmdir(“./result/history_data”)</dd>
-<dt>if not os.path.exists(“./result/history_data”):</dt>
-<dd><p class="first">os.makedirs(“./result/history_data”)</p>
-<p class="last">“”” pysot_tesult.txt file is for saving the objective
-function value and parameter vector of each evaluations”“”</p>
-</dd>
-<dt>if os.path.exists(“./result/pysot_result.txt”):</dt>
-<dd>os.remove(“./result/pysot_result.txt”)</dd>
-</dl>
-<p>fp = open(“./result/pysot_result.txt”, “a”)
-fp.write(“IterationtSimIDtObjtParmatersn”)
-fp.close()</p>
-<p># ———–set the threads and budget—————–#
-nthreads = 4
-maxeval = 80
-nsamples = nthreads</p>
-<p># (1) Initilize the Optimization problem
-data = delft3d_1objs(dim=4)
-logging.info(data.info)
-data.home_dir = ‘/Users/xiawei/Desktop/opdelft/examples/’</p>
-<p># (2) Experimental design
-# Use a symmetric Latin hypercube with 2d + 1 samples
-exp_des = SymmetricLatinHypercube(dim=data.dim, npts=12)</p>
-<p># (3) Surrogate model
-# Use a cubic RBF interpolant with a linear tail
-surrogate = RBFInterpolant(kernel=CubicKernel, tail=LinearTail, maxp=maxeval)</p>
-<p># (4) Adaptive sampling
-adapt_samp = CandidateDYCORS(data=data, numcand=1000 * data.dim)</p>
-<p># (5) Use the multiprocessing-based sychronous strategy without non-bound constraints
-strategy = SyncStrategyNoConstraintsMutipro(obj_func,</p>
-<blockquote>
-<div>worker_id=0, data=data, maxeval=maxeval, nsamples=nsamples,
-exp_design=exp_des, response_surface=surrogate,
-sampling_method=adapt_samp)</div></blockquote>
-<p># (6) Use the multiprocessing-based sychronous controller
-controller = MultiproController()
-controller.strategy = strategy</p>
-<p class="last"># Run the optimization strategy
-result = controller.run()
-print “result”, result</p>
-</dd>
-<dt>if __name__ == “__main__”:</dt>
-<dd>main()</dd>
-</dl>
 </div>
 
 

@@ -28,6 +28,7 @@ def obj_func(paramters):
     x, simid, iterid = paramters
     simiter = iterid
     simid = simid
+    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
     result = data.objfunction(x, simid, simiter)
     return result
 
@@ -61,7 +62,7 @@ def main():
     fp.close()
 
     # -----------set the threads and budget-----------------#
-    nthreads = 10
+    nthreads = 1
     maxeval = 80
     nsamples = nthreads
 

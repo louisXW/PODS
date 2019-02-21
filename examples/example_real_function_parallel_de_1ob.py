@@ -8,6 +8,7 @@ def obj_func(paramters):
     x, simid, iterid = paramters
     simid = simid
     iterid = iterid
+    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
     result = data.objfunction(x, simid, iterid)
     return result
 

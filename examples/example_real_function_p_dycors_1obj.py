@@ -62,7 +62,7 @@ def main():
     fp.close()
 
     # -----------set the threads and budget-----------------#
-    nthreads = 4
+    nthreads = 1
     maxeval = 80
     nsamples = nthreads
 

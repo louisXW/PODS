@@ -190,20 +190,40 @@
 <p><strong>iterid</strong> and <strong>simid</strong> are used both in the main string of the algrithom and in the objective funciton evaluations to modify simualtion files, launch simuation executation, connect the each subprocess with main string of algorithm</p>
 <p>The parallel controller used in opdelft is the multiprocesisng.pool() function in python.</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#Initialization the pool class.</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Initialization the pool class.</span>
 
-    <span class="nv">pool</span> <span class="o">=</span> multiprocessing.Pool<span class="o">(</span>nprocessors<span class="o">)</span>
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">nprocessors</span><span class="p">)</span>
 
     <span class="c1">#zip the a list of parameter vectors with iteration and simulation ID.</span>
 
-<span class="nv">paramters</span> <span class="o">=</span> zip<span class="o">(</span>params, simid, iterid<span class="o">)</span>
+<span class="n">paramters</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">simid</span><span class="p">,</span> <span class="n">iterid</span><span class="p">)</span>
 
     <span class="c1">#Use pool.map to run a batch of evaluations. self.obj_func is the evaltions function take paramters as input.</span>
 
-<span class="nv">objfuns</span> <span class="o">=</span> pool.map<span class="o">(</span>self.obj_func, paramters<span class="o">)</span>
+<span class="n">objfuns</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_func</span><span class="p">,</span> <span class="n">paramters</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
+<p>In the objective evaluaiton function obj_func() the varialbe “iterid** and <strong>simid</strong> are used as index for the iteration ID and Simulation ID. This function will be called by the optimizaiton algorithm (master) to do evaluation. Users need to set up the home_dir which will be used to nevigate the dir for simualtion evaluations</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj_func</span><span class="p">(</span><span class="n">paramters</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The function for objective function evaluation.</span>
+<span class="sd">        :param paramters: A tuple (x, simid, iterid)</span>
+<span class="sd">                x: the dim dimensional parameter vector</span>
+<span class="sd">                simid: the index of simulation ID in each iteration</span>
+<span class="sd">                iterid: the index of iteration ID</span>
+<span class="sd">                simid and iterid is used control a batch of simulations running simultaneously in each iteration.</span>
+<span class="sd">        :return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">delft3d_1objs</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#Initializaiton for the problem class</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">home_dir</span> <span class="o">=</span> <span class="s1">&#39;/Users/xiawei/Desktop/opdelft/examples/&#39;</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">simid</span><span class="p">,</span> <span class="n">iterid</span> <span class="o">=</span> <span class="n">paramters</span>
+        <span class="n">simid</span> <span class="o">=</span> <span class="n">simid</span>
+        <span class="n">iterid</span> <span class="o">=</span> <span class="n">iterid</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">objfunction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">simid</span><span class="p">,</span> <span class="n">iterid</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
 </div>
 
 
