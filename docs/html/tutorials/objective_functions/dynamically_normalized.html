@@ -187,11 +187,13 @@
 <span id="dynamically-normalized"></span><h1>Dynamically Normalized Objective Function<a class="headerlink" href="#dynamically-normalized-objective-function" title="Permalink to this headline">¶</a></h1>
 <p>This is dynamically normalized objective funciton formular for problems with multiple objectives:</p>
 <blockquote>
-<div></div></blockquote>
+<div><div class="math notranslate nohighlight">
+\[\text{objective function}(X) = \sum\limits_{k \in K} {\frac{{{f_k}(X) - f_k^{\min }(X)}}{{f_k^{\max }(X) - f_k^{\min }(X)}}}\]</div>
+</div></blockquote>
 <dl class="docutils">
 <dt>Where</dt>
-<dd> is the parameter vector for the evalution function.
- and  are the maximum and minimum values of  among all the evaluations completed  so far, and hence they  have to be updated dynamically in each iteration during  optimization.</dd>
+<dd><span class="math notranslate nohighlight">\(X\)</span> is the parameter vector for the evalution function.
+<span class="math notranslate nohighlight">\(f_k^{\max }(X)\)</span> and <span class="math notranslate nohighlight">\(f_k^{\min }(X)\)</span> are the maximum and minimum values of <span class="math notranslate nohighlight">\({f_k}(X)\)</span> among all the evaluations completed  so far, and hence they  have to be updated dynamically in each iteration during  optimization.</dd>
 </dl>
 </div>
 
@@ -250,6 +252,8 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script type="text/javascript" src="../../_static/jquery.fancybox.min.js"></script>
 
   

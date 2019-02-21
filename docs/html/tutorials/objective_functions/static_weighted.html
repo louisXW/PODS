@@ -187,12 +187,14 @@
 <span id="static-weighted"></span><h1>Static Weighted Objective Function<a class="headerlink" href="#static-weighted-objective-function" title="Permalink to this headline">¶</a></h1>
 <p>To sovle problems with multiple objectives with singale objective optimizaiton methods the traditional way is add multiple objectives into a singale objective funcction with a definted weight.</p>
 <blockquote>
-<div></div></blockquote>
+<div><div class="math notranslate nohighlight">
+\[\text{objective function}(X) := \sum\limits_{k \in K}{w_k * f_k(X)}\]</div>
+</div></blockquote>
 <dl class="docutils">
 <dt>where</dt>
-<dd> is the parameter vector for the evalution function.
- is the weight given for the  objective funciton .
- is a set of objectives.</dd>
+<dd><span class="math notranslate nohighlight">\(X\)</span> is the parameter vector for the evalution function.
+<span class="math notranslate nohighlight">\(w_k\)</span> is the weight given for the <span class="math notranslate nohighlight">\(k^{th}\)</span> objective funciton <span class="math notranslate nohighlight">\(f_k(X)\)</span>.
+<span class="math notranslate nohighlight">\(K\)</span> is a set of objectives.</dd>
 </dl>
 </div>
 
@@ -251,6 +253,8 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script type="text/javascript" src="../../_static/jquery.fancybox.min.js"></script>
 
   
