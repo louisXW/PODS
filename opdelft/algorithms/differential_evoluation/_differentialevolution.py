@@ -5,16 +5,19 @@ Added by Andrew Nelson 2014
 """
 from __future__ import division, print_function, absolute_import
 import numpy as np
-from scipy.optimize import OptimizeResult,  minimize   # For some reason OptimizeResult can not be import from scipy Dec 8 Xia Wei
+from scipy.optimize import OptimizeResult, minimize
 from scipy.optimize.optimize import _status_message
 import numbers
 import multiprocessing
+import logging
 __all__ = ['differential_evolution']
 
 _MACHEPS = np.finfo(np.float64).eps
 
+# Get module-level logger
+logger = logging.getLogger(__name__)
 
-def differential_evolution(func, data, bounds, args=(),
+def differential_evolution(func, bounds, args=(),
                            parallel=False, strategy='best1bin',
                            maxiter=None, popsize=15, tol=0.01,
                            mutation=(0.5, 1), recombination=0.7, seed=None,
@@ -204,7 +207,7 @@ def differential_evolution(func, data, bounds, args=(),
     .. [3] http://en.wikipedia.org/wiki/Differential_evolution
     """
 
-    solver = DifferentialEvolutionSolver(func, data, bounds, args=args,
+    solver = DifferentialEvolutionSolver(func, bounds, args=args,
                                          parallel=parallel, strategy=strategy,
                                          maxiter=maxiter, popsize=popsize,
                                          tol=tol, mutation=mutation,
@@ -326,7 +329,7 @@ class DifferentialEvolutionSolver(object):
                     'best2exp': '_best2',
                     'rand2exp': '_rand2'}
 
-    def __init__(self, func, data, bounds, args=(), parallel=False,
+    def __init__(self, func, bounds, args=(), parallel=False,
                  strategy='best1bin', maxiter=None, popsize=15,
                  tol=0.01, mutation=(0.5, 1), recombination=0.7, seed=None,
                  maxfun=None, callback=None, disp=False, polish=True,
@@ -345,9 +348,6 @@ class DifferentialEvolutionSolver(object):
         self.callback = callback
         self.polish = polish
         self.tol = tol
-        # self.recordinf = Record_evalpoints()  #Modified by Xia Wei at 10:25 06/Feb 2018 uesd to recode the previous evalutaed points
-
-
 
         # Mutation constant should be in [0, 2). If specified as a sequence
         # then dithering is performed.
@@ -367,7 +367,6 @@ class DifferentialEvolutionSolver(object):
         self.cross_over_probability = recombination
 
         self.func = func
-        self.data = data
         self.args = args
 
         # convert tuple of lower and upper bounds to limits
@@ -408,12 +407,15 @@ class DifferentialEvolutionSolver(object):
         elif self.init == 'random':
             self.init_population_random()
         elif self.init == 'given':
-            filename1 = "pysot_result_dycors_both_exp1.txt"
-            data = self.read_pysot_result_both(filename1)
+            # self.population = np.array([[ 0.82293924, 0.29996045], [ 0.52060619,  0.89408546], [ 0.41254365,  0.70683338],
+            #                    [ 0.0755938,   0.56741298], [ 0.29669575,  0.06424364], [ 0.8412531 ,  0.3813342 ]])
+            filename1 = "pysot_result_DYCORS_EXP5.txt"
+            data = self.read_measured_data(filename1)
             data = data[:24]
-            self.population = data[:, 4:]
+            self.population = data[:, 3:]
             for index, item in enumerate(self.population):
                 self.population[index] = self._unscale_parameters(item)
+
 
         else:
             raise ValueError("The population initialization method must be one"
@@ -421,17 +423,7 @@ class DifferentialEvolutionSolver(object):
 
         # self.population_energies = np.ones(
             # popsize * parameter_count) * np.inf
-
-        #Record the objectives of all evaluations in a history list
-        self.parameters =[]
-        self.sub_objs = []
-
-        #Record the sub objetives for the paraents
         self.population_energies = np.ones(popsize) * np.inf
-        self.population_energies_subobjs = np.ones((popsize, self.data.no_sub_objs)) * np.inf
-        print ('population_energies_subobjs', self.population_energies_subobjs)
-        # self.population_energies_tem = np.ones(popsize) * np.inf    # Modified by Xia Wei to save one objective function value
-        # self.population_energies_vel = np.ones(popsize) * np.inf # Modified by Xia Wei to save another objective funtion value
 
         self.disp = disp
 
@@ -468,7 +460,7 @@ class DifferentialEvolutionSolver(object):
         rng = self.random_number_generator
         self.population = rng.random_sample(self.population.shape)
 
-    def read_pysot_result_both(self, filename):
+    def read_measured_data(self, filename):
         file = filename
         with open(file) as f:
             reader = f.readlines()
@@ -476,13 +468,10 @@ class DifferentialEvolutionSolver(object):
             for i, line in enumerate(reader):
                 if i >= 1:
                     str1 = line.split('\t')
-                    str2 = str1[4].replace('@[', '').replace('\n', '').replace(']', '').split(', ')
-                    str3 = str1[0:4] + str2
+                    str2 = str1[3].replace('@[', '').replace('\n', '').replace(']', '').split(', ')
+                    str3 = str1[0:3] + str2
                     if 'None' in str3:
-                        str3 = str1[0:2]
-                        str3 = [float(item) for item in str3]
-                        str3.append(None)
-                        data.append(str3)
+                        pass
                     else:
                         str3 = [float(item) for item in str3]
                         data.append(str3)
@@ -522,11 +511,10 @@ class DifferentialEvolutionSolver(object):
 
         # calculate energies to start with
         if self.init == 'given':
-            filename1 = "pysot_result_dycors_both_exp1.txt"
-            data = self.read_pysot_result_both(filename1)
+            filename1 = "pysot_result_DYCORS_EXP5.txt"
+            data = self.read_measured_data(filename1)
             data = data[:24]
-            self.population_energies = data[:, 2:4]
-
+            self.population_energies = data[:, 2]
         else:
             if self.parallel:
 
@@ -537,8 +525,6 @@ class DifferentialEvolutionSolver(object):
                 params = []
                 simid = []
                 genid = []
-
-                print('population_ini', self.population)
                 for index, candidate in enumerate(self.population):
                     params.append(self._scale_parameters(candidate))
                     simid.append(index)
@@ -553,8 +539,14 @@ class DifferentialEvolutionSolver(object):
                 pool = multiprocessing.Pool(nprocessors)
 
                 paramters = zip(params, simid, genid)
-                # energies = self.func(params, *self.args)
                 energies = pool.map(self.func, paramters)
+
+                for it in range(len(energies)):
+                    energy = energies[it]
+                    self.log_completion(energy, params[it])
+
+    #            for it in range(len(energies)):
+    #                self.population_energies[it] = energies[it]
                 self.population_energies = energies
 
             else:
@@ -570,7 +562,15 @@ class DifferentialEvolutionSolver(object):
                         warning_flag = True
                         status_message = _status_message['maxfev']
                         break
-        self.on_complete_ini(self.population_energies, self.population)      #Modifiedy by Xia Wei to find the best
+
+        minval = np.argmin(self.population_energies)
+
+        # put the lowest energy into the best solution position.
+        lowest_energy = self.population_energies[minval]
+        self.population_energies[minval] = self.population_energies[0]
+        self.population_energies[0] = lowest_energy
+
+        self.population[[0, minval], :] = self.population[[minval, 0], :]
 
         if warning_flag:
             return OptimizeResult(
@@ -583,8 +583,7 @@ class DifferentialEvolutionSolver(object):
 
         # do the optimisation.
         for nit in range(1, self.maxiter + 1):
-            print ("self.population", self.population)
-            print ("self.enginers", self.population_energies)
+            print ('self.population',self.population)
             if self.dither is not None:
                 self.scale = self.random_number_generator.rand(
                 ) * (self.dither[1] - self.dither[0]) + self.dither[0]
@@ -595,7 +594,6 @@ class DifferentialEvolutionSolver(object):
                 """
                 # vectorized evaluation of the func for parallel case
                 params = []
-                offsprings = []
                 simid = []
                 genid = []
                 for candidate in range(np.size(self.population, 0)):
@@ -607,7 +605,6 @@ class DifferentialEvolutionSolver(object):
 
                     trial = self._mutate(candidate)
                     self._ensure_constraint(trial)
-                    offsprings.append(trial)
                     params.append(self._scale_parameters(trial))
                     simid.append(candidate)
                     genid.append(nit)
@@ -615,17 +612,28 @@ class DifferentialEvolutionSolver(object):
                     nfev += 1
                 nprocessors = np.size(self.population, 0)
                 pool = multiprocessing.Pool(nprocessors)
+
                 paramters = zip(params, simid, genid)
-                # energies = self.func(params, *self.args)
                 energies = pool.map(self.func, paramters)
-                print ("energies", energies)
-                self.on_complete_opt(energies, offsprings)  # Modifiedy by Xia Wei to find the best
+
+                for it in range(len(energies)):
+                    energy = energies[it]
+                    if energy < self.population_energies[it]:
+                        self.population[it] =\
+                            self._unscale_parameters(params[it])
+                        self.population_energies[it] = energy
+
+                        if energy < self.population_energies[0]:
+                            self.population_energies[0] = energy
+                            self.population[0] =\
+                                self._unscale_parameters(params[it])
+                    self.log_completion(energy, params[it])
+
+
 
             else:
                 # make serial evaluation of the func
                 # serial evaluation is required for agressive strategies
-                energies = []
-                offsprings = []
                 for candidate in range(np.size(self.population, 0)):
                     if nfev > self.maxfun:
                         warning_flag = True
@@ -633,19 +641,21 @@ class DifferentialEvolutionSolver(object):
                         break
 
                     trial = self._mutate(candidate)
-                    offsprings.append(trial)
                     self._ensure_constraint(trial)
                     parameters = self._scale_parameters(trial)
 
                     energy = self.func(parameters, *self.args)
-                    energies.append(energy)
                     nfev += 1
-                self.on_complete_opt(energies, offsprings)
 
+                    if energy < self.population_energies[candidate]:
+                        self.population[candidate] = trial
+                        self.population_energies[candidate] = energy
 
+                        if energy < self.population_energies[0]:
+                            self.population_energies[0] = energy
+                            self.population[0] = trial
 
-
-                # stop when the fractional s.d. of the population is less than tol
+            # stop when the fractional s.d. of the population is less than tol
             # of the mean energy
             convergence = (np.std(self.population_energies) /
                            np.abs(np.mean(self.population_energies) +
@@ -700,164 +710,6 @@ class DifferentialEvolutionSolver(object):
                 self.population[0] = self._unscale_parameters(result.x)
 
         return DE_result
-
-    def on_complete_ini(self, objfuns, parents_x):
-        """Handle completed function evaluation.
-        When a function evaluation is completed we update the objective function
-        value for each previous evaluated points
-        """
-
-        print ("ini_objfuns", objfuns)
-        print ("parents_x", parents_x)
-        energies_subobjs= []
-        for indx, item in enumerate(objfuns):
-            self.sub_objs.append(item)
-            energies_subobjs.append(item)
-            self.parameters.append(parents_x[indx])
-            for i in range(self.data.no_sub_objs):
-                self.population_energies_subobjs[indx, i] = item[i]
-
-
-        sub_objs = np.asarray(self.sub_objs)
-        energies_subobjs = np.asarray(energies_subobjs)
-        if np.size(sub_objs, 1) != self.data.no_sub_objs:
-            raise ValueError('Number of sub objectives mismatch')
-        if self.data.no_sub_objs>1:
-
-            #Implementation of the Dynamically Normalized Objective function
-            dynobf = 0
-            for i in range(self.data.no_sub_objs):
-                dynobf = dynobf + (energies_subobjs[:, i]- min(sub_objs[:, i])) / float(max(sub_objs[:, i]) - min(sub_objs[:, i]))
-            self.population_energies = dynobf
-            print ('after normalized_ini', self.population_energies)
-            print ('sub_objs', self.sub_objs)
-
-
-            # put the lowest energy into the best solution position.
-            minval = np.argmin(self.population_energies)
-            lowest_energy = self.population_energies[minval]
-            self.population_energies[minval] = self.population_energies[0]
-            self.population_energies[0] = lowest_energy
-            self.population[[0, minval], :] = self.population[[minval, 0], :]
-            self.population_energies_subobjs[[0, minval], :] = self.population_energies_subobjs[[minval, 0], :]
-
-            print ('reorder_ini', self.population_energies)
-            print('reorder_ini', self.population)
-            print('after reorder subobjs', self.population_energies_subobjs)
-        else:
-            self.population_energies = energies_subobjs[:, 0]
-            minval = np.argmin(self.population_energies)
-            lowest_energy = self.population_energies[minval]
-            self.population_energies[minval] = self.population_energies[0]
-            self.population_energies[0] = lowest_energy
-            self.population[[0, minval], :] = self.population[[minval, 0], :]
-
-    def on_complete_opt(self, objfuns, offsprings_x):
-        """Handle completed function evaluation.
-        When a function evaluation is completed we update the objective function
-        value for each previous evaluated points
-        """
-        print ("parents", self.population)
-        print ("parents_engiers", self.population_energies)
-        print ("offsrping_x", offsprings_x)
-        print ("offspring_fx", objfuns)
-        offsprings_x = np.asarray(offsprings_x)
-        offsprings_energies_subobjs = []
-        for indx, item in enumerate(objfuns):
-            self.sub_objs.append(item)
-            offsprings_energies_subobjs.append(item)
-        sub_objs = np.asarray(self.sub_objs)
-        print('sub_objs', self.sub_objs)
-
-        offsprings_energies_subobjs = np.asarray(offsprings_energies_subobjs)
-        if np.size(sub_objs, 1) != self.data.no_sub_objs:
-            raise ValueError('Number of sub objectives mismatch')
-        print('offspring_sub_objs', offsprings_energies_subobjs)
-        if self.data.no_sub_objs > 1:
-
-            #Implementation of the Dynamically Normalized Objective Function for offsprings
-            dynobf = 0
-            for i in range(self.data.no_sub_objs):
-                dynobf = dynobf + (offsprings_energies_subobjs[:, i]- min(sub_objs[:, i])) / float(max(sub_objs[:, i]) - min(sub_objs[:, i]))
-
-            print ('dynobf_offspring', dynobf)
-            energies = dynobf
-
-            # Implementation of the Dynamically Normalized Objective Function for parents
-
-            dynobf = 0
-            for i in range(self.data.no_sub_objs):
-                dynobf = dynobf + (self.population_energies_subobjs[:, i] - min(sub_objs[:, i])) / float(
-                    max(sub_objs[:, i]) - min(sub_objs[:, i]))
-            self.population_energies = dynobf
-
-            print('dynobf_parents', self.population_energies)
-
-
-
-            # put the lowest energy into the best solution position.
-            print ('before_population_energies', self.population_energies)
-            minval = np.argmin(self.population_energies)
-            lowest_population_energy = self.population_energies[minval]
-            self.population_energies[minval] = self.population_energies[0]
-            self.population_energies[0] = lowest_population_energy
-            self.population[[0, minval], :] = self.population[[minval, 0], :]
-            self.population_energies_subobjs[[0, minval], :] = self.population_energies_subobjs[[minval, 0], :]
-
-            print('after_population_energies', self.population_energies)
-
-
-            #move the position of offspring corresponding to the best solution in the paraents
-            offspring_of_best_popluation = energies [minval]
-            energies[minval] = energies[0]
-            energies[0] = offspring_of_best_popluation
-            offsprings_x[[0, minval], :] = offsprings_x[[minval, 0], :]
-
-            print ('before offsperings', offsprings_energies_subobjs)
-            offsprings_energies_subobjs[[0, minval], :] = offsprings_energies_subobjs[[minval, 0], :]
-            print('after offsperings', offsprings_energies_subobjs)
-
-
-            # Select the offsprings. Update the parents for next generations
-            for it in range(len(energies)):
-                energy = energies[it]
-                if energy < self.population_energies[it]:
-                    self.population[it] = offsprings_x[it]
-                    self.population_energies[it] = energy
-                    for i in range(self.data.no_sub_objs):
-                        self.population_energies_subobjs[it, i] = offsprings_energies_subobjs[it, i]
-
-                    if energy < self.population_energies[0]:
-                        self.population[it] = self.population[0]
-                        self.population[0] = offsprings_x[it]
-                        self.population_energies[it] = self.population_energies[0]
-                        self.population_energies[0] = energy
-                        self.population_energies_subobjs[[it, 0], :] = self.population_energies_subobjs[[0, it], :]
-        else:
-            energies = offsprings_energies_subobjs[:, 0]
-            print ('energies', energies)
-            print ('populations offsprings', offsprings_x)
-
-            # Select the offsprings. Update the parents for next generations
-            for it in range(len(energies)):
-                energy = energies[it]
-                if energy < self.population_energies[it]:
-                    self.population[it] = offsprings_x[it]
-                    self.population_energies[it] = energy
-
-                    if energy < self.population_energies[0]:
-                        self.population[it] = self.population[0]
-                        self.population[0] = offsprings_x[it]
-                        self.population_energies[it] = self.population_energies[0]
-                        self.population_energies[0] = energy
-
-            print ("parents_next", self.population_energies)
-            print ("populations next", self.population)
-
-
-
-
-        print ("after selection populations", self.population_energies)
 
     def _scale_parameters(self, trial):
         """
@@ -978,6 +830,20 @@ class DifferentialEvolutionSolver(object):
         self.random_number_generator.shuffle(idxs)
         idxs = idxs[:number_samples]
         return idxs
+
+    def log_completion(self, obj, x):
+        """Record a completed evaluation to the log.
+
+        :param record: Record of the function evaluation
+        :type record: Object
+        """
+
+        xstr = np.array_str(x, max_line_width=np.inf,
+                            precision=5, suppress_small=True)
+        print (xstr)
+        print(obj)
+
+        logger.info("{} {:.3e} @ {}".format("False", obj, xstr))
 
 
 def _make_random_gen(seed):

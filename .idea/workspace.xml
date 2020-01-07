@@ -6,42 +6,84 @@
   <component name="ChangeListManager">
     <list default="true" id="43a77c1c-b2b7-40e0-8058-2e940cbd1c73" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/examples/example1.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/examples/example1.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/examples/example2_1.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/examples/example2_1.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/examples/example2_2.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/examples/example2_2.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/examples/example3_1.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/examples/example3_1.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/examples/example3_2.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/examples/example3_2.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/tutorials/algorithms/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/tutorials/algorithms/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/tutorials/parallelization.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/tutorials/parallelization.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/_sources/examples/example1.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/_sources/examples/example1.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/_sources/examples/example2_1.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/_sources/examples/example2_1.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/_sources/examples/example2_2.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/_sources/examples/example2_2.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/_sources/examples/example3_1.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/_sources/examples/example3_1.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/_sources/examples/example3_2.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/_sources/examples/example3_2.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/_sources/tutorials/algorithms/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/_sources/tutorials/algorithms/index.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/_sources/tutorials/parallelization.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/_sources/tutorials/parallelization.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/examples/example1.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/examples/example1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/examples/example2_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/examples/example2_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/examples/example2_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/examples/example2_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/examples/example3_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/examples/example3_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/examples/example3_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/examples/example3_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/tutorials/algorithms/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/tutorials/algorithms/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/html/tutorials/parallelization.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/html/tutorials/parallelization.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/examples/example1.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/examples/example1.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/examples/example2_1.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/examples/example2_1.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/examples/example2_2.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/examples/example2_2.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/examples/example3_1.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/examples/example3_1.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/examples/example3_2.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/examples/example3_2.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/algorithms/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/algorithms/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/tutorials/parallelization.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/tutorials/parallelization.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_real_function_p_dycors_1obj.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_real_function_p_dycors_1obj.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_real_function_p_dycors_2objs.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_real_function_p_dycors_2objs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_real_function_parallel_de_1ob.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_real_function_parallel_de_1ob.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_real_function_parallel_de_2objs.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_real_function_parallel_de_2objs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example_real_function_series_dycors_1obj.py" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example_real_function_series_dycors_1obj.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_ackley_p_de_1obj.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_ackley_p_de_2objs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_ackley_p_dycors_1objs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_ackley_p_dycors_2objs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_real_function_p_dycors_1obj.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_real_function_p_dycors_2objs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_real_function_parallel_de_1ob.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_real_function_parallel_de_2objs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example_real_function_series_dycors_1obj.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/differential_evoluation/_differentialevolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/opdelft/algorithms/differential_evoluation/_differentialevolution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/mpiserve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/tcpserve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/monitor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/mpi_silly.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_coroutine_strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_fixed_strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_input_strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_maxterm_strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_mpi_process_worker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_mpiserve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_process_worker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_simteam_controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_strategies.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_tcpserve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_thread_controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/poap/test/test_thread_strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/._.DS_Store" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/adaptive_sampling.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/ensemble_surrogate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/experimental_design.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/gp_regression.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/gui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/heuristic_methods.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/kernels.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/mars_interpolant.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/merit_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/poly_regression.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/rbf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/rs_wrappers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/sot_sync_restart_strategies.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/sot_sync_strategies.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/tails.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/.idea/test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/Ackley.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/Keane.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/SphereExt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_ensemble.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_extra_vals.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_gp_regression.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_kriging.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_mars.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_matlab_engine.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_mixed_integer_constraints.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_multisampling.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_penalty.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_projection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_rbf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_simple.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_simple_mpi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_simple_time.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_subprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_subprocess_files.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_subprocess_mpi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test/test_subprocess_partial_info.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test_parallel_dynamicp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/test_problems.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/algorithms/pySOT/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/problems/real_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/opdelft/problems/real_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opdelft/problems/test_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/opdelft/problems/test_functions.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,43 +100,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/example_real_function_p_dycors_1obj.py">
+        <entry file="file://$PROJECT_DIR$/examples/example_test_function_p_de.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="61" />
+            <state relative-caret-position="-137">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
               <folding>
-                <element signature="e#82#162#0" expanded="true" />
+                <element signature="e#0#36#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/example_real_function_parallel_de_1ob.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-              <folding>
-                <element signature="e#0#79#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/example_real_function_p_dycors_2objs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-414">
-              <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/examples/example_real_function_parallel_de_2objs.py">
+        <entry file="file://$PROJECT_DIR$/opdelft/problems/test_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+            <state relative-caret-position="-767">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+              <folding>
+                <element signature="e#101#1574#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/example_test_function_p_dycors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+              <folding>
+                <element signature="e#94#103#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,20 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/opdelft/problems/real_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/example_real_function_series_dycors_1obj.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+            <state relative-caret-position="-1088">
+              <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -168,6 +192,12 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>exp_iter</find>
+      <find>exp_simid</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -184,27 +214,28 @@
         <option value="$PROJECT_DIR$/opdelft/problems/f34_flow/test_modify_coefficient.py" />
         <option value="$PROJECT_DIR$/opdelft/problems/f34_flow/model/f34.mdf" />
         <option value="$PROJECT_DIR$/opdelft/problems/test_modify_coefficient.py" />
-        <option value="$PROJECT_DIR$/opdelft/problems/real_functions.py" />
-        <option value="$PROJECT_DIR$/examples/example_real_function_p_dycors_1obj.py" />
-        <option value="$PROJECT_DIR$/examples/example_real_function_parallel_de_1ob.py" />
         <option value="$PROJECT_DIR$/examples/example_real_function_p_dycors_2objs.py" />
         <option value="$PROJECT_DIR$/examples/example_real_function_series_dycors_1obj.py" />
         <option value="$PROJECT_DIR$/examples/example_real_function_parallel_de_2objs.py" />
+        <option value="$PROJECT_DIR$/examples/example_test_function_p_de.py" />
+        <option value="$PROJECT_DIR$/examples/example_test_function_p_dycors.py" />
+        <option value="$PROJECT_DIR$/opdelft/problems/real_functions.py" />
+        <option value="$PROJECT_DIR$/examples/example_real_function_p_dycors_1obj.py" />
+        <option value="$PROJECT_DIR$/examples/example_real_function_parallel_de_1ob.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="591" />
-    <option name="y" value="99" />
-    <option name="width" value="1440" />
-    <option name="height" value="831" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="99" />
+    <option name="y" value="37" />
+    <option name="width" value="1810" />
+    <option name="height" value="1262" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,16 +248,33 @@
               <item name="opdelft" type="462c0819:PsiDirectoryNode" />
               <item name="examples" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="opdelft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="opdelft" type="462c0819:PsiDirectoryNode" />
+              <item name="opdelft" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opdelft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="opdelft" type="462c0819:PsiDirectoryNode" />
+              <item name="opdelft" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opdelft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="opdelft" type="462c0819:PsiDirectoryNode" />
+              <item name="opdelft" type="462c0819:PsiDirectoryNode" />
+              <item name="problems" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -301,10 +349,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="591" y="99" width="1440" height="831" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2489301" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13750985" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -315,7 +362,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3328823" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3328137" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -404,16 +451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/opdelft/problems/test_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-          <folding>
-            <element signature="e#22#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/0/f34.mdf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-705">
@@ -442,6 +479,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
           <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opdelft/algorithms/pySOT/sot_sync_strategies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-405">
+          <caret line="697" column="36" selection-start-line="697" selection-start-column="36" selection-end-line="697" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/example_real_function_p_dycors_2objs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/example_real_function_series_dycors_1obj.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -476,61 +534,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/opdelft/algorithms/pySOT/sot_sync_strategies.py">
+    <entry file="file://$PROJECT_DIR$/examples/example_real_function_parallel_de_2objs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405">
-          <caret line="697" column="36" selection-start-line="697" selection-start-column="36" selection-end-line="697" selection-end-column="36" />
+        <state relative-caret-position="424">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/example_test_function_p_dycors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding>
+            <element signature="e#94#103#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/opdelft/problems/real_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/example_real_function_p_dycors_1obj.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="61" />
-          <folding>
-            <element signature="e#82#162#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1088">
+          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/example_real_function_parallel_de_1ob.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+        <state relative-caret-position="543">
+          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
           <folding>
             <element signature="e#0#79#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/example_real_function_p_dycors_2objs.py">
+    <entry file="file://$PROJECT_DIR$/examples/example_real_function_p_dycors_1obj.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-414">
-          <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+        <state relative-caret-position="391">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+          <folding>
+            <element signature="e#82#162#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/example_real_function_series_dycors_1obj.py">
+    <entry file="file://$PROJECT_DIR$/examples/example_test_function_p_de.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+        <state relative-caret-position="-137">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/example_real_function_parallel_de_2objs.py">
+    <entry file="file://$PROJECT_DIR$/opdelft/problems/test_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        <state relative-caret-position="-767">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#101#1574#0" />
+          </folding>
         </state>
       </provider>
     </entry>
