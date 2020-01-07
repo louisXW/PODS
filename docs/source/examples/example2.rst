@@ -42,7 +42,7 @@ This is an demo to use the DYCORS in parallel for the calibraiton of the Delft3D
 		nsamples = nthreads
 
 		# (1) Initilize the Optimization problem
-		data = delft3d_1objs(dim=4)
+		data = delft3d_flow(dim=4)
 		logging.info(data.info)
 		data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
 
