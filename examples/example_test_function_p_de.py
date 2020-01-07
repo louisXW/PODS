@@ -1,6 +1,11 @@
-from _differentialevolution import *
-# from ObjectlongbothPDE import *
-from test_functions import *
+"""
+
+This is an example running parallel differential evolution with test problems
+
+"""
+
+from opdelft.algorithms.differential_evoluation._differentialevolution import *
+from opdelft.problems.test_functions import *
 import os.path
 import logging
 import os

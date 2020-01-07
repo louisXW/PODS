@@ -14,9 +14,8 @@
 import numpy as np
 import scipy.spatial as scpspatial
 import scipy.linalg as scplinalg
-from p_dycors.kernels import *
-from p_dycors.tails import *
-
+from kernels import *
+from tails import *
 
 class RBFInterpolant(object):
     """Compute and evaluate RBF interpolant.

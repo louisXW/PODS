@@ -15,10 +15,10 @@ from __future__ import print_function
 import numpy as np
 import math
 import logging
-from p_dycors.experimental_design import SymmetricLatinHypercube, LatinHypercube
-from p_dycors.adaptive_sampling import CandidateDYCORS
-from p_dycors.rbf import *
-from p_dycors.utils import *
+from experimental_design import SymmetricLatinHypercube, LatinHypercube
+from adaptive_sampling import CandidateDYCORS
+from rbf import *
+from utils import *
 import multiprocessing # Modfied on 10:39 PM 30 Jan
 import time
 

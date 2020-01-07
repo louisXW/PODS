@@ -13,7 +13,7 @@
 
 import math
 import scipy.stats as stats
-from p_dycors.merit_functions import *
+from merit_functions import *
 import types
 
 

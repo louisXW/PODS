@@ -1,55 +1,34 @@
-INFO:root:4 Ansoulate error function 
+INFO:root:10-dimensional Ackley function 
 Global optimum: f(0,0,...,0) = 0
-INFO:opdelft.algorithms.pySOT.sot_sync_strategies:=== Start ===
-INFO:root:The 1 iteration 0 simulation called objfunction
-INFO:root:The 1 iteration 1 simulation called objfunction
-INFO:root:0 iteration 1 evaluation: finished modify the coefficient file
-INFO:root:The 1 iteration 2 simulation called objfunction
-INFO:root:The 1 iteration 3 simulation called objfunction
-INFO:root:2 iteration 1 evaluation: finished modify the coefficient file
-INFO:root:1 iteration 1 evaluation: finished modify the coefficient file
-INFO:root:3 iteration 1 evaluation: finished modify the coefficient file
-ERROR:root:Trackback Error:1 iteration 0 evaluation
-Traceback (most recent call last):
-  File "/Users/xiawei/Desktop/opdelft/opdelft/problems/real_functions.py", line 72, in delft3d_flow
-    subprocess.Popen(cmd, cwd=workingdir).wait()
-  File "//anaconda/lib/python2.7/subprocess.py", line 711, in __init__
-    errread, errwrite)
-  File "//anaconda/lib/python2.7/subprocess.py", line 1343, in _execute_child
-    raise child_exception
-OSError: [Errno 13] Permission denied
-INFO:root:The 2 iteration 4 simulation called objfunction
-ERROR:root:Trackback Error:1 iteration 2 evaluation
-Traceback (most recent call last):
-  File "/Users/xiawei/Desktop/opdelft/opdelft/problems/real_functions.py", line 72, in delft3d_flow
-    subprocess.Popen(cmd, cwd=workingdir).wait()
-  File "//anaconda/lib/python2.7/subprocess.py", line 711, in __init__
-    errread, errwrite)
-  File "//anaconda/lib/python2.7/subprocess.py", line 1343, in _execute_child
-    raise child_exception
-OSError: [Errno 13] Permission denied
-INFO:root:The 2 iteration 5 simulation called objfunction
-INFO:root:The 2 iteration 6 simulation called objfunction
-INFO:root:The 2 iteration 7 simulation called objfunction
-INFO:root:The 3 iteration 8 simulation called objfunction
-INFO:root:The 3 iteration 9 simulation called objfunction
-INFO:root:The 3 iteration 10 simulation called objfunction
-ERROR:root:Trackback Error:1 iteration 1 evaluation
-Traceback (most recent call last):
-  File "/Users/xiawei/Desktop/opdelft/opdelft/problems/real_functions.py", line 72, in delft3d_flow
-    subprocess.Popen(cmd, cwd=workingdir).wait()
-  File "//anaconda/lib/python2.7/subprocess.py", line 711, in __init__
-    errread, errwrite)
-  File "//anaconda/lib/python2.7/subprocess.py", line 1343, in _execute_child
-    raise child_exception
-OSError: [Errno 13] Permission denied
-INFO:root:The 3 iteration 11 simulation called objfunction
-ERROR:root:Trackback Error:1 iteration 3 evaluation
-Traceback (most recent call last):
-  File "/Users/xiawei/Desktop/opdelft/opdelft/problems/real_functions.py", line 72, in delft3d_flow
-    subprocess.Popen(cmd, cwd=workingdir).wait()
-  File "//anaconda/lib/python2.7/subprocess.py", line 711, in __init__
-    errread, errwrite)
-  File "//anaconda/lib/python2.7/subprocess.py", line 1343, in _execute_child
-    raise child_exception
-OSError: [Errno 13] Permission denied
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.891e+01 @ [  8.9465    2.01608  12.67699   5.27513  14.58207  -0.5652    4.42175  10.24983 -14.21575  12.04551]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.872e+01 @ [ -2.39376  -9.22976  -8.41502  12.21878   4.26163  -9.86238  -4.42373  11.63384   8.91052 -14.9275 ]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.910e+01 @ [-11.93345  16.35952  -3.68099 -12.28117  -5.74654   9.4889  -13.15765  -3.05228  13.72999   2.05009]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.944e+01 @ [ 19.22928   8.7637    7.13779  -5.81201 -14.19948  17.17849  15.65363 -11.1301   -2.05322   7.99822]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 2.015e+01 @ [-11.08349  -4.77989 -14.753     8.42894   9.21363  -9.86238  16.66141  16.36608  18.15682 -13.80057]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.929e+01 @ [  8.80165   0.98371  13.89499   9.77546  15.07673 -14.3012    4.42175   3.66954  15.33343  12.04551]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.820e+01 @ [-9.03724  5.82968  3.07934 16.28658 -1.7844   9.4889  -9.60569 12.44464  3.57173 -2.00844]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.900e+01 @ [  4.24972   8.7637    3.94134   8.15097 -14.19948  17.17849  15.65363 -11.1301   -4.63757   7.99822]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.748e+01 @ [ -8.96312   3.26669   2.32635   3.99001  -1.7844    2.77171  -9.60569  12.44464  10.74291 -10.7497 ]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.848e+01 @ [-9.03724  5.82968  3.07934 16.28658 -1.7844   9.4889   4.42175 12.44464  3.57173 12.04551]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.852e+01 @ [ -6.78552   3.26669   2.32635   6.77633   9.06072   9.4889   14.60389  -8.6672   10.74291 -10.7497 ]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.798e+01 @ [  6.67235   2.49833  11.46331   6.66759 -14.19948   0.7062    2.6479   10.52738  -4.63757   7.99822]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.594e+01 @ [-8.96312  1.19668  2.32635  3.99001 -9.49877 -2.68562 -1.99166 11.25331  5.64189 -4.53185]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.841e+01 @ [10.66038  5.82968 -3.3511   2.32625  5.92997  4.05515 16.05717 13.63597  6.3967  12.04551]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.819e+01 @ [ 0.75232  2.78925  8.00379 16.28658 -9.49877  9.4889  -9.60569 11.25331  1.18592  0.89972]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.753e+01 @ [-8.91706  1.67412  1.85846  6.66759 -1.7844   0.7062   2.6479  12.44464 15.19888 -7.55645]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.730e+01 @ [  3.8061   -2.22095   6.61081   3.99001  -9.49877  -5.43988 -13.01976  10.27353   5.64189   7.21049]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.825e+01 @ [10.66038 -0.11309 -3.3511  -6.12298 -9.49877  4.05515 16.05717 11.25331  9.30658 -8.9989 ]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.590e+01 @ [-8.92524  1.58934  1.94154  6.19212 -3.15429  0.10389 -9.60569 12.23309  1.18592 -7.01935]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.636e+01 @ [-8.91706 -2.61361  6.99561  6.66759 -1.7844   0.7062   2.6479   9.29375  5.02111 11.39482]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.771e+01 @ [-8.92524  1.58934  1.94154 16.53294  2.17309 -3.21393  6.72754 13.0558  -5.63289 -5.35715]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.751e+01 @ [10.66038  1.58934 -3.3511  -6.12298 -9.49877  4.05515 -9.60569 12.23309  1.18592 -8.9989 ]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.757e+01 @ [ -8.92524   5.1185   -2.30229   5.79287  -4.30457  -0.40186 -12.183    14.70122  -2.03444  10.33625]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.715e+01 @ [-8.91706  1.58934  6.99561  6.66759 -3.15429  0.10389 -9.60569 12.23309  1.18592 11.39482]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.656e+01 @ [ 9.82375  1.58934  1.94154 -5.59692 -3.15429  3.88637 -9.60569 12.23309  1.18592 -8.91434]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.533e+01 @ [-8.91741 -2.43407  6.77972 -6.12298 -1.84292  0.68047  2.12447  9.4193   1.18592 -8.9989 ]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.683e+01 @ [-8.92524  5.61275 -2.89664  6.19212 -3.15429 -0.47268 -9.60569 12.23309 -2.48545 -8.87522]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.784e+01 @ [-8.91706  1.58934  7.0081  17.98115  2.91918 -3.67858 -9.60569 12.23309  5.02111 -5.12436]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.523e+01 @ [-8.9171  -2.58956  6.9667   4.95462 -1.79224  0.70275  2.12447  9.4193   1.18592  8.66361]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.587e+01 @ [-8.92449  1.206    6.77972 -6.53477 -3.02935  0.15883 -8.48807 11.965    1.18592 -4.99982]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.624e+01 @ [-8.9171  -2.58956  6.9667   4.95462 -1.79224  0.70275  2.5778  12.23309  4.50749  8.66361]
+INFO:opdelft.algorithms.differential_evoluation._differentialevolution:False 1.546e+01 @ [-8.91706 -2.43407  6.99561  6.66759 -1.84292  0.7062   2.12447  9.4193   1.18592 -8.9989 ]

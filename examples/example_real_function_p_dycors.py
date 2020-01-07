@@ -3,12 +3,11 @@
   :synopsis: Test Simple
 .. moduleauthor:: XiaWei
 """
-from opdelft.algorithms.pySOT.experimental_design import SymmetricLatinHypercube
-from opdelft.algorithms.pySOT.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
-from opdelft.algorithms.pySOT.rbf import RBFInterpolant, CubicKernel, LinearTail
-from opdelft.algorithms.pySOT.adaptive_sampling import CandidateDYCORS
-
-from opdelft.algorithms.poap.controller import MultiproController
+from opdelft.algorithms.p_dycors.experimental_design import SymmetricLatinHypercube
+from opdelft.algorithms.p_dycors.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
+from opdelft.algorithms.p_dycors.rbf import RBFInterpolant, CubicKernel, LinearTail
+from opdelft.algorithms.p_dycors.adaptive_sampling import CandidateDYCORS
+from opdelft.algorithms.p_dycors.controller import MultiproController
 import numpy as np
 import os
 import logging

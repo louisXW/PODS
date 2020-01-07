@@ -11,7 +11,7 @@
 
 """
 
-from p_dycors.utils import *
+from utils import *
 import scipy.spatial as scp
 
 
