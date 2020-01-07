@@ -11,7 +11,7 @@ To learn more about the files of the f34 model, one can refer to the Deflt3D-FLO
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    example1
    example2

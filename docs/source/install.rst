@@ -9,7 +9,7 @@ Preparing your system to use opdelft
 1. **python** & **pySOT**
 
 Before starting you will need to Python installed. Recommend python 2.7 since opdelft was developed and tested based on this verison.
-You will need to have pySOT (0.1.36) installed. Other python module like (poap, scipy, numpy) needed will be installed automatically once the pySOT is installed.
+You will need to have pySOT (0.1.36) installed. Other python module like (scipy, numpy， pyDOE) needed will be installed automatically once the pySOT is installed.
 
 To install the pySOT (0.1.36) package with conda run one of the following:
 

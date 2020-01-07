@@ -3,10 +3,9 @@
 Objective Funcitons
 ===================
 
-This is a collection of tutorials on PyGMO's basics:
+This is a collection of tutorials on objective functions:
 
 .. toctree::
 
    
    static_weighted
-   dynamically_normalized

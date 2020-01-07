@@ -9,5 +9,5 @@ This is a collection of tutorials on opdelft basics:
 
    algorithms/index
    parallelization
-   objective_functions/index
+   objectivefunction
    postposing

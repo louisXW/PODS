@@ -42,7 +42,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="opdelft 0.0.1 documentation" href="../index.html"/>
         <link rel="up" title="Examples" href="index.html"/>
-        <link rel="next" title="Calibrate Delft-FLOW Problem with DYCORS in Parallel" href="example2.html"/>
+        <link rel="next" title="Single Objective Problem" href="example2.html"/>
         <link rel="prev" title="Examples" href="index.html"/> 
 
   
@@ -98,8 +98,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Calibrate Delft3D-FLOW Problem with DYCORS in serial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example2.html">Calibrate Delft-FLOW Problem with DYCORS in Parallel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example3.html">Optimize Delft-FLOW with Parallel DE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example2.html">Single Objective Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example3.html">Single Objective Problem</a></li>
 </ul>
 </li>
 </ul>
@@ -164,7 +164,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="example2.html" class="btn btn-neutral float-right" title="Calibrate Delft-FLOW Problem with DYCORS in Parallel" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="example2.html" class="btn btn-neutral float-right" title="Single Objective Problem" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Examples" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -182,12 +182,11 @@
 <ol class="arabic simple">
 <li>Import the modules that will be used. Users may need to import their own problem modules.</li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.experimental_design</span> <span class="kn">import</span> <span class="n">SymmetricLatinHypercube</span>
-<span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.sot_sync_strategies</span> <span class="kn">import</span> <span class="n">SyncStrategyNoConstraintsMutipro</span>
-<span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.rbf</span> <span class="kn">import</span> <span class="n">RBFInterpolant</span><span class="p">,</span> <span class="n">CubicKernel</span><span class="p">,</span> <span class="n">LinearTail</span>
-<span class="kn">from</span> <span class="nn">opdelft.algorithms.pySOT.adaptive_sampling</span> <span class="kn">import</span> <span class="n">CandidateDYCORS</span>
-
-<span class="kn">from</span> <span class="nn">opdelft.algorithms.poap.controller</span> <span class="kn">import</span> <span class="n">MultiproController</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opdelft.algorithms.p_dycors.experimental_design</span> <span class="kn">import</span> <span class="n">SymmetricLatinHypercube</span>
+<span class="kn">from</span> <span class="nn">opdelft.algorithms.p_dycors.sot_sync_strategies</span> <span class="kn">import</span> <span class="n">SyncStrategyNoConstraintsMutipro</span>
+<span class="kn">from</span> <span class="nn">opdelft.algorithms.p_dycors.rbf</span> <span class="kn">import</span> <span class="n">RBFInterpolant</span><span class="p">,</span> <span class="n">CubicKernel</span><span class="p">,</span> <span class="n">LinearTail</span>
+<span class="kn">from</span> <span class="nn">opdelft.algorithms.p_dycors.adaptive_sampling</span> <span class="kn">import</span> <span class="n">CandidateDYCORS</span>
+<span class="kn">from</span> <span class="nn">opdelft.algorithms.p_dycors.controller</span> <span class="kn">import</span> <span class="n">MultiproController</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">logging</span>
@@ -207,7 +206,7 @@
 <span class="sd">                simid and iterid is used control a batch of simulations running simultaneously in each iteration.</span>
 <span class="sd">        :return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">delft3d_1objs</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#Initializaiton for the problem class</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">delft3d_flow</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#Initializaiton for the problem class</span>
         <span class="n">data</span><span class="o">.</span><span class="n">home_dir</span> <span class="o">=</span> <span class="s1">&#39;/Users/xiawei/Desktop/opdelft/examples/&#39;</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">simid</span><span class="p">,</span> <span class="n">iterid</span> <span class="o">=</span> <span class="n">paramters</span>
         <span class="n">simid</span> <span class="o">=</span> <span class="n">simid</span>
@@ -254,7 +253,7 @@
         <span class="n">nsamples</span> <span class="o">=</span> <span class="n">nthreads</span>
 
         <span class="c1"># (1) Initilize the Optimization problem</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">delft3d_1objs</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">delft3d_flow</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
         <span class="n">data</span><span class="o">.</span><span class="n">home_dir</span> <span class="o">=</span> <span class="s1">&#39;/Users/xiawei/Desktop/opdelft/examples/&#39;</span>
 
@@ -301,7 +300,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="example2.html" class="btn btn-neutral float-right" title="Calibrate Delft-FLOW Problem with DYCORS in Parallel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="example2.html" class="btn btn-neutral float-right" title="Single Objective Problem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -346,8 +345,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/language_data.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script type="text/javascript" src="../_static/jquery.fancybox.min.js"></script>
 
   

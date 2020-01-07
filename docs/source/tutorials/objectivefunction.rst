@@ -1,7 +1,8 @@
-.. _static_weighted:
+.. _objectivefunction:
 
-Static Weighted Objective Function
-==================================
+================================================================
+Objective Function
+================================================================
 
 To sovle problems with multiple objectives with singale objective optimizaiton methods the traditional way is add multiple objectives into a singale objective funcction with a definted weight.
 
@@ -14,3 +15,6 @@ where
 	  :math:`w_k` is the weight given for the :math:`k^{th}` objective funciton :math:`f_k(X)`.
 	  :math:`K` is a set of objectives.
 
+
+Goodness of fit
+----------------------------------

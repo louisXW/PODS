@@ -10,12 +10,11 @@ This is an demo to use the DYCORS in serial for the calibraiton of the Delft3D p
 
 .. code-block:: python
 
-	from opdelft.algorithms.pySOT.experimental_design import SymmetricLatinHypercube
-	from opdelft.algorithms.pySOT.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
-	from opdelft.algorithms.pySOT.rbf import RBFInterpolant, CubicKernel, LinearTail
-	from opdelft.algorithms.pySOT.adaptive_sampling import CandidateDYCORS
-
-	from opdelft.algorithms.poap.controller import MultiproController
+	from opdelft.algorithms.p_dycors.experimental_design import SymmetricLatinHypercube
+	from opdelft.algorithms.p_dycors.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
+	from opdelft.algorithms.p_dycors.rbf import RBFInterpolant, CubicKernel, LinearTail
+	from opdelft.algorithms.p_dycors.adaptive_sampling import CandidateDYCORS
+	from opdelft.algorithms.p_dycors.controller import MultiproController
 	import numpy as np
 	import os
 	import logging
@@ -35,7 +34,7 @@ This is an demo to use the DYCORS in serial for the calibraiton of the Delft3D p
 			simid and iterid is used control a batch of simulations running simultaneously in each iteration.
 		:return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)
 		"""
-		data = delft3d_1objs(dim=4) #Initializaiton for the problem class
+		data = delft3d_flow(dim=4) #Initializaiton for the problem class
 		data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
 		x, simid, iterid = paramters
 		simid = simid
@@ -82,7 +81,7 @@ This is an demo to use the DYCORS in serial for the calibraiton of the Delft3D p
 		nsamples = nthreads
 
 		# (1) Initilize the Optimization problem
-		data = delft3d_1objs(dim=4)
+		data = delft3d_flow(dim=4)
 		logging.info(data.info)
 		data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
 
