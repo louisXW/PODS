@@ -1,5 +1,5 @@
-from opdelft.algorithms.differential_evoluation._differentialevolution import *
-from opdelft.problems.real_functions import *
+from pods.algorithms.differential_evoluation._differentialevolution import *
+from pods.problems.real_functions import *
 import os
 
 def obj_func(paramters):
@@ -8,7 +8,7 @@ def obj_func(paramters):
     x, simid, iterid = paramters
     simid = simid
     iterid = iterid
-    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
+    data.home_dir = '/Users/xiawei/Desktop/pods/examples/'
     result = data.objfunction(x, simid, iterid)
     return result
 
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     data = delft3d_flow(dim=4)
     logging.info(data.info)
-    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
+    data.home_dir = '/Users/xiawei/Desktop/pods/examples/'
 
     bounds = [(0.1, 1.0), (0.1, 1.0), (0.0, 0.005), (0, 0.005)]
     result = differential_evolution(obj_func,data, bounds, parallel=True, maxiter= 7, popsize=4, tol=0, init='latinhypercube')

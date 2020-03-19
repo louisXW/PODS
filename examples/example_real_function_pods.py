@@ -1,16 +1,17 @@
 """
-.. module:: test_2_objectives
-  :synopsis: test_2_objectives
+.. module:: test_simple
+  :synopsis: Test Simple
 .. moduleauthor:: XiaWei
 """
+from pods.algorithms.pods.experimental_design import SymmetricLatinHypercube
+from pods.algorithms.pods.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
+from pods.algorithms.pods.rbf import RBFInterpolant, CubicKernel, LinearTail
+from pods.algorithms.pods.adaptive_sampling import CandidateDYCORS
+from pods.algorithms.pods.controller import MultiproController
+import numpy as np
 import os
-from opdelft.algorithms.p_dycors.experimental_design import SymmetricLatinHypercube
-from opdelft.algorithms.p_dycors.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
-from opdelft.algorithms.p_dycors.rbf import RBFInterpolant, CubicKernel, LinearTail
-from opdelft.algorithms.p_dycors.adaptive_sampling import CandidateDYCORS
-from opdelft.algorithms.p_dycors.controller import MultiproController
 import logging
-from opdelft.problems.test_functions import *
+from pods.problems.real_functions import *
 
 def obj_func(paramters):
     """
@@ -22,20 +23,16 @@ def obj_func(paramters):
         simid and iterid is used control a batch of simulations running simultaneously in each iteration.
     :return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)
     """
-    data = Ackley(dim=10) #Initializaiton for the problem class
+    data = delft3d_flow(dim=4) #Initializaiton for the problem class
+    data.home_dir = '/Users/xiawei/Desktop/pods/examples/'
     x, simid, iterid = paramters
-    simiter = iterid
     simid = simid
-    result = data.objfunction(x)
+    iterid = iterid
+    result = data.objfunction(x, simid, iterid)
     return result
 
 def main():
-
-    #-----------Initilizae logging-----------------#
-    cwd = os.getcwd()
-    print ("cwd", cwd)
-    homedir = os.path
-    print  homedir
+    # -----------Initilizae logging-----------------#
     if not os.path.exists("./logfiles"):
         os.makedirs("logfiles")
     if os.path.exists("./logfiles/test_simple.log"):
@@ -63,18 +60,19 @@ def main():
     fp.write("Iteration\tSimID\tObj\tParmaters\n")
     fp.close()
 
-    #-----------set the threads and budget-----------------#
+    # -----------set the threads and budget-----------------#
     nthreads = 1
-    maxeval = 30
+    maxeval = 80
     nsamples = nthreads
 
     # (1) Initilize the Optimization problem
-    data = Ackley(dim=10)
+    data = delft3d_flow(dim=4)
     logging.info(data.info)
+    data.home_dir = '/Users/xiawei/Desktop/pods/examples/'
 
     # (2) Experimental design
     # Use a symmetric Latin hypercube with 2d + 1 samples
-    exp_des = SymmetricLatinHypercube(dim=data.dim, npts= 24)
+    exp_des = SymmetricLatinHypercube(dim=data.dim, npts=12)
 
     # (3) Surrogate model
     # Use a cubic RBF interpolant with a linear tail
@@ -83,12 +81,11 @@ def main():
     # (4) Adaptive sampling
     adapt_samp = CandidateDYCORS(data=data, numcand=1000 * data.dim)
 
-
     # (5) Use the multiprocessing-based sychronous strategy without non-bound constraints
     strategy = SyncStrategyNoConstraintsMutipro(obj_func,
-        worker_id=0, data=data, maxeval=maxeval, nsamples=nsamples,
-        exp_design=exp_des, response_surface=surrogate,
-        sampling_method=adapt_samp)
+                                                worker_id=0, data=data, maxeval=maxeval, nsamples=nsamples,
+                                                exp_design=exp_des, response_surface=surrogate,
+                                                sampling_method=adapt_samp)
 
     # (6) Use the multiprocessing-based sychronous controller
     controller = MultiproController()
@@ -97,6 +94,7 @@ def main():
     # Run the optimization strategy
     result = controller.run()
     print "result", result
+
 
 
 if __name__ == "__main__":

@@ -3,15 +3,15 @@
   :synopsis: Test Simple
 .. moduleauthor:: XiaWei
 """
-from opdelft.algorithms.p_dycors.experimental_design import SymmetricLatinHypercube
-from opdelft.algorithms.p_dycors.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
-from opdelft.algorithms.p_dycors.rbf import RBFInterpolant, CubicKernel, LinearTail
-from opdelft.algorithms.p_dycors.adaptive_sampling import CandidateDYCORS
-from opdelft.algorithms.p_dycors.controller import MultiproController
+from pods.algorithms.pods.experimental_design import SymmetricLatinHypercube
+from pods.algorithms.pods.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
+from pods.algorithms.pods.rbf import RBFInterpolant, CubicKernel, LinearTail
+from pods.algorithms.pods.adaptive_sampling import CandidateDYCORS
+from pods.algorithms.pods.controller import MultiproController
 import numpy as np
 import os
 import logging
-from opdelft.problems.real_functions import *
+from pods.problems.real_functions import *
 
 def obj_func(paramters):
     """
@@ -24,7 +24,7 @@ def obj_func(paramters):
     :return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)
     """
     data = delft3d_flow(dim=4) #Initializaiton for the problem class
-    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
+    data.home_dir = '/Users/xiawei/Desktop/pods/examples/'
     x, simid, iterid = paramters
     simid = simid
     iterid = iterid
@@ -68,7 +68,7 @@ def main():
     # (1) Initilize the Optimization problem
     data = delft3d_flow(dim=4)
     logging.info(data.info)
-    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
+    data.home_dir = '/Users/xiawei/Desktop/pods/examples/'
 
     # (2) Experimental design
     # Use a symmetric Latin hypercube with 2d + 1 samples

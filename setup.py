@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="opdelft",
+    name="PODS",
     version="0.0.1",
     author="xia wei",
     author_email="xiawei@u.nus.edu",
-    description="An optimization toolbox for expensive environmental models",
+    description="An optimization toolbox for expensive model optimization problems",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/louisXW/opdelft",
+    url="https://github.com/louisXW/PODS",
     packages=setuptools.find_packages(),
     install_requires=["numpy", "pysot==0.1.36"],
     classifiers=[
