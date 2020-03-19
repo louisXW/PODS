@@ -1,14 +1,14 @@
 .. _howtoinstall:
 
-Install opdelft
+Install PODS
 ===============
 
-Preparing your system to use opdelft
+Preparing your system to use PODS
 ------------------------------------
 
 1. **python** & **pySOT**
 
-Before starting you will need to Python installed. Recommend python 2.7 since opdelft was developed and tested based on this verison.
+Before starting you will need to Python installed. Recommend python 2.7 since PODS was developed and tested based on this verison.
 You will need to have pySOT (0.1.36) installed. Other python module like (scipy, numpy， pyDOE) needed will be installed automatically once the pySOT is installed.
 
 To install the pySOT (0.1.36) package with conda run one of the following:
@@ -35,9 +35,9 @@ The Delft3D installation manual on both windows and linux links to https://conte
 You may also want to compile the open source on your platform. The instruction links to https://oss.deltares.nl/c/document_library/get_file?uuid=e3bf2d05-f59f-4d4a-8c13-97bcbaa84060&groupId=21119
 
 
-Install **opdelft** on your system
+Install **PODS** on your system
 ----------------------------------
-There are two options to install opdelft
+There are two options to install PODS
 
 1. install from repostitory with setup.py
 
@@ -45,21 +45,21 @@ There are two options to install opdelft
 
 	.. code-block:: bash
 	
-		git clone https://github.com/louisXW/opdelft.git
+		git clone https://github.com/louisXW/PODS.git
 
 |  1.2. Navigate to the folder with setup.py file:
 	
 	.. code-block:: bash
 	
-		cd opdelft/opdelft
+		cd PODS
 	
-|  1.3. Install opdelft with setup.py if you have admister root
+|  1.3. Install PODS with setup.py if you have admister root
 
 	.. code-block:: bash
 	
 		python setup.py install
 
-|  1.4. Most cases you might work on a remote workstation without root. Install opdelft with setup.py locally
+|  1.4. Most cases you might work on a remote workstation without root. Install PODS with setup.py locally
 
 	.. code-block:: bash
 	
@@ -69,7 +69,7 @@ There are two options to install opdelft
 
 	.. code-block:: bash
 	
-		pip install opdelft	
+		pip install PODS	
 	
 	
 

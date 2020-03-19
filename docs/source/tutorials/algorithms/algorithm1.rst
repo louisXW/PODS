@@ -1,13 +1,11 @@
 .. _algorithm1:
 
-DYCORS
+PODS
 ======
 
-DYCORS (DYnamic COordinate search using Response Surface models) is a surrogate-based algorithm for optimization of HEB (High-dimensional, Expensive, and Black-box) problems.
+PODS (Parallel Optimization with Dynamic coordinate search using Surrogates) is a parallel surrogate-based algorithm for optimization of HEB (High-dimensional, Expensive, and Black-box) problems. PODS is an expansion of serial DYCORS and incorporated the Surrogate-Distance Metric for selecting of multiple evaluation points in each iteration, which is required to implement an algorithm in parallel. 
 
-The implementation of DYCORS is available is pySOT for both serial and parallel verison.
-
-The synchronous parallelization with multiprocessing python model is implementited in opdelft.
+The synchronous parallelization with multiprocessing python model is implementited in PODS.
 
 .. [1] D. Eriksson, D. Bindel, and C. Shoemaker. 
 	Surrogate Optimization Toolbox (pySOT). github.com/dme65/pySOT, 2015 .

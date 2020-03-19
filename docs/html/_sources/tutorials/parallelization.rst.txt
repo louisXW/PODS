@@ -4,13 +4,13 @@
 Parallelization
 ================================================================
 
-The parallel implementaion for both DYCORS and Differential Evolution use a synchronous parallel framework.
+The parallel implementaion for both PODS and Differential Evolution use a synchronous parallel framework.
 
 This parallelization strategy of the algorithm allows simultaneous function evaluations on multiple processors (cores) in batch mode and can greatly speedup the calibration of computationally expensive models by reducing the calibration time and making the calibration of some extremely expensive models possible.
 
 Since real problems (different from math test functions) are usually model suit with a batch of simualtaiton files, it's usually technique difficult to implementaion parallelization with real problems. This is escipically true when the problems involues large number of files and with intensive postprcessing.
 
-In opdelft two variable **iterid** and **simid** are frequently use for the parallelization control.
+In PODS two variable **iterid** and **simid** are frequently use for the parallelization control.
  
 	**iterid** indicates the index of iterations.
 	
@@ -19,7 +19,7 @@ In opdelft two variable **iterid** and **simid** are frequently use for the para
 **iterid** and **simid** are used both in the main string of the algrithom and in the objective funciton evaluations to modify simualtion files, launch simuation executation, connect the each subprocess with main string of algorithm
 
 	
-The parallel controller used in opdelft is the multiprocesisng.pool() function in python. 
+The parallel controller used in PODS is the multiprocesisng.pool() function in python. 
 
    .. code-block:: python
    
@@ -51,7 +51,7 @@ In the objective evaluaiton function obj_func() the varialbe "iterid** and **sim
 		:return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)
 		"""
 		data = delft3d_1objs(dim=4) #Initializaiton for the problem class
-		data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
+		data.home_dir = '/Users/xiawei/Desktop/PODS/examples/'
 		x, simid, iterid = paramters
 		simid = simid
 		iterid = iterid

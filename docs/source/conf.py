@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'opdelft'
+project = u'PODS'
 copyright = u'2019, Xia Wei'
 author = u'Xia Wei'
 

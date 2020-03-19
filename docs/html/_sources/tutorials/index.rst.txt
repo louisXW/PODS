@@ -1,9 +1,9 @@
-.. _opdelfttutorials:
+.. _podsttutorials:
 
 Tutorials
 =========
 
-This is a collection of tutorials on opdelft basics:
+This is a collection of tutorials on PODS basics:
 
 .. toctree::
 

@@ -1,9 +1,9 @@
-.. _opdelftalgorithms:
+.. _podsalgorithms:
 
 Algorithms
 ===================
 
-This is a collection of optimization algorihtms in opdelft. Surrogate optmizaiton method (e.g. DYCORS) and Differential Evoluation are currently included.
+This is a collection of optimization algorihtms in PODS. Surrogate optmizaiton method (e.g. PODS) and Differential Evoluation are currently included.
 
 .. toctree::
 

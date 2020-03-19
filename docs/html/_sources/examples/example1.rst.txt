@@ -10,15 +10,15 @@ This is an demo to use the DYCORS in serial for the calibraiton of the Delft3D p
 
 .. code-block:: python
 
-	from opdelft.algorithms.p_dycors.experimental_design import SymmetricLatinHypercube
-	from opdelft.algorithms.p_dycors.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
-	from opdelft.algorithms.p_dycors.rbf import RBFInterpolant, CubicKernel, LinearTail
-	from opdelft.algorithms.p_dycors.adaptive_sampling import CandidateDYCORS
-	from opdelft.algorithms.p_dycors.controller import MultiproController
+	from pods.algorithms.pods.experimental_design import SymmetricLatinHypercube
+	from pods.algorithms.pods.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
+	from pods.algorithms.pods.rbf import RBFInterpolant, CubicKernel, LinearTail
+	from pods.algorithms.pods.adaptive_sampling import CandidateDYCORS
+	from pods.algorithms.pods.controller import MultiproController
 	import numpy as np
 	import os
 	import logging
-	from opdelft.problems.real_functions import *
+	from pods.problems.real_functions import *
 
 2. Define the objective evaluation function obj_func(). This function will be called by the optimizaiton algorithm (master) to do evaluation. Users need to set up the home_dir which will be used to nevigate the dir for simualtion evaluations
 
@@ -35,7 +35,7 @@ This is an demo to use the DYCORS in serial for the calibraiton of the Delft3D p
 		:return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)
 		"""
 		data = delft3d_flow(dim=4) #Initializaiton for the problem class
-		data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
+		data.home_dir = '/Users/xiawei/Desktop/PODS/examples/'
 		x, simid, iterid = paramters
 		simid = simid
 		iterid = iterid
@@ -83,7 +83,7 @@ This is an demo to use the DYCORS in serial for the calibraiton of the Delft3D p
 		# (1) Initilize the Optimization problem
 		data = delft3d_flow(dim=4)
 		logging.info(data.info)
-		data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
+		data.home_dir = '/Users/xiawei/Desktop/PODS/examples/'
 
 		# (2) Experimental design
 		# Use a symmetric Latin hypercube with 2d + 1 samples

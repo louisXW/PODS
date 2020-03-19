@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parallelization &mdash; opdelft 0.0.1 documentation</title>
+  <title>Parallelization &mdash; PODS 0.0.1 documentation</title>
   
 
   
@@ -40,9 +40,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="opdelft 0.0.1 documentation" href="../index.html"/>
+    <link rel="top" title="PODS 0.0.1 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="index.html"/>
-        <link rel="next" title="Objective Funcitons" href="objective_functions/index.html"/>
+        <link rel="next" title="Objective Function" href="objectivefunction.html"/>
         <link rel="prev" title="Differential Evolution" href="algorithms/algorithm2.html"/> 
 
   
@@ -62,7 +62,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> opdelft
+            <a href="../index.html" class="icon icon-home"> PODS
           
 
           
@@ -93,12 +93,12 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Install opdelft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install PODS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="algorithms/index.html">Algorithms</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Parallelization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="objective_functions/index.html">Objective Funcitons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectivefunction.html">Objective Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="postposing.html">Postposing</a></li>
 </ul>
 </li>
@@ -117,7 +117,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">opdelft</a>
+          <a href="../index.html">PODS</a>
         
       </nav>
 
@@ -165,7 +165,7 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="objective_functions/index.html" class="btn btn-neutral float-right" title="Objective Funcitons" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="objectivefunction.html" class="btn btn-neutral float-right" title="Objective Function" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="algorithms/algorithm2.html" class="btn btn-neutral" title="Differential Evolution" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -179,16 +179,16 @@
             
   <div class="section" id="parallelization">
 <span id="id1"></span><h1>Parallelization<a class="headerlink" href="#parallelization" title="Permalink to this headline">¶</a></h1>
-<p>The parallel implementaion for both DYCORS and Differential Evolution use a synchronous parallel framework.</p>
+<p>The parallel implementaion for both PODS and Differential Evolution use a synchronous parallel framework.</p>
 <p>This parallelization strategy of the algorithm allows simultaneous function evaluations on multiple processors (cores) in batch mode and can greatly speedup the calibration of computationally expensive models by reducing the calibration time and making the calibration of some extremely expensive models possible.</p>
 <p>Since real problems (different from math test functions) are usually model suit with a batch of simualtaiton files, it’s usually technique difficult to implementaion parallelization with real problems. This is escipically true when the problems involues large number of files and with intensive postprcessing.</p>
-<p>In opdelft two variable <strong>iterid</strong> and <strong>simid</strong> are frequently use for the parallelization control.</p>
+<p>In PODS two variable <strong>iterid</strong> and <strong>simid</strong> are frequently use for the parallelization control.</p>
 <blockquote>
 <div><p><strong>iterid</strong> indicates the index of iterations.</p>
 <p><strong>simid</strong> indicates the index of simulation of a batch of simultaneous simulations in each iteration.</p>
 </div></blockquote>
 <p><strong>iterid</strong> and <strong>simid</strong> are used both in the main string of the algrithom and in the objective funciton evaluations to modify simualtion files, launch simuation executation, connect the each subprocess with main string of algorithm</p>
-<p>The parallel controller used in opdelft is the multiprocesisng.pool() function in python.</p>
+<p>The parallel controller used in PODS is the multiprocesisng.pool() function in python.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Initialization the pool class.</span>
 
@@ -216,7 +216,7 @@
 <span class="sd">        :return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">delft3d_1objs</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#Initializaiton for the problem class</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">home_dir</span> <span class="o">=</span> <span class="s1">&#39;/Users/xiawei/Desktop/opdelft/examples/&#39;</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">home_dir</span> <span class="o">=</span> <span class="s1">&#39;/Users/xiawei/Desktop/PODS/examples/&#39;</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">simid</span><span class="p">,</span> <span class="n">iterid</span> <span class="o">=</span> <span class="n">paramters</span>
         <span class="n">simid</span> <span class="o">=</span> <span class="n">simid</span>
         <span class="n">iterid</span> <span class="o">=</span> <span class="n">iterid</span>
@@ -236,7 +236,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="objective_functions/index.html" class="btn btn-neutral float-right" title="Objective Funcitons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="objectivefunction.html" class="btn btn-neutral float-right" title="Objective Function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="algorithms/algorithm2.html" class="btn btn-neutral" title="Differential Evolution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

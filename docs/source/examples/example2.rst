@@ -1,9 +1,9 @@
 .. _example2:
 
-Calibrate Delft3D-FLOW Problem with P-DYCORS
+Calibrate Delft3D-FLOW Problem with PODS
 ========================
 
-This is an demo to use the DYCORS in parallel for the calibraiton of the Delft3D problem with Single Objective Problem. The experiment setting is the same with example in :ref:`example1`. Users just need to change the parameter nthreads to be the number of parallel processors that users want to use.
+This is an demo to use the PODS in parallel for the calibraiton of the Delft3D problem with Single Objective Problem. The experiment setting is the same with example in :ref:`example1`. Users just need to change the parameter nthreads to be the number of parallel processors that users want to use.
 
 .. code-block:: python
 
