@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Examples &mdash; opdelft 0.0.1 documentation</title>
+  <title>Examples &mdash; PODS 0.0.1 documentation</title>
   
 
   
@@ -40,7 +40,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="opdelft 0.0.1 documentation" href="../index.html"/>
+    <link rel="top" title="PODS 0.0.1 documentation" href="../index.html"/>
         <link rel="next" title="Calibrate Delft3D-FLOW Problem with DYCORS in serial" href="example1.html"/>
         <link rel="prev" title="Convert NEFIS to DAT" href="../tutorials/convert_his2dat.html"/> 
 
@@ -61,7 +61,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> opdelft
+            <a href="../index.html" class="icon icon-home"> PODS
           
 
           
@@ -92,13 +92,13 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Install opdelft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install PODS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="example1.html">Calibrate Delft3D-FLOW Problem with DYCORS in serial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example2.html">Calibrate Delft-FLOW Problem with DYCORS in Parallel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example3.html">Optimize Delft-FLOW with Parallel DE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example2.html">Calibrate Delft3D-FLOW Problem with PODS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example3.html">Calibrate Delft3D-FLOW Problem with Differential Evolution</a></li>
 </ul>
 </li>
 </ul>
@@ -115,7 +115,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">opdelft</a>
+          <a href="../index.html">PODS</a>
         
       </nav>
 
@@ -174,23 +174,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="examples">
-<span id="opdelftexamples"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<p>This is a collection of examples on advanced uses of opdelft.</p>
+<span id="podsexamples"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>This is a collection of examples on advanced uses of PODS.</p>
 <p>The examples here is to show how to use the optimisation algorithms with real problems (e.g., Delft3D models). A simple Delft3D-FLOW model f34 from the Delftare website the <a class="reference external" href="https://oss.deltares.nl/web/delft3d/source-code">https://oss.deltares.nl/web/delft3d/source-code</a> is used as an examples. Note the f34 model here is very simple just for the demo purpose and should not be used for scientific purpose.</p>
 <p>To learn more about the files of the f34 model, one can refer to the Deflt3D-FLOW manual <a class="reference external" href="https://oss.deltares.nl/documents/183920/185723/Delft3D-FLOW_User_Manual.pdf">https://oss.deltares.nl/documents/183920/185723/Delft3D-FLOW_User_Manual.pdf</a></p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="example1.html">Calibrate Delft3D-FLOW Problem with DYCORS in serial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example2.html">Calibrate Delft-FLOW Problem with DYCORS in Parallel</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="example2_1.html">Single Objective Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example2_2.html">Use Dynamically Normalized Objective Function</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="example3.html">Optimize Delft-FLOW with Parallel DE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="example3_1.html">Single Objective Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example3_2.html">Use Dynamically Normalized Objective Function</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="example2.html">Calibrate Delft3D-FLOW Problem with PODS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example3.html">Calibrate Delft3D-FLOW Problem with Differential Evolution</a></li>
 </ul>
 </div>
 </div>
@@ -250,8 +242,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/language_data.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script type="text/javascript" src="../_static/jquery.fancybox.min.js"></script>
 
   

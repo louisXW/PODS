@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Install opdelft &mdash; opdelft 0.0.1 documentation</title>
+  <title>Install PODS &mdash; PODS 0.0.1 documentation</title>
   
 
   
@@ -40,9 +40,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="opdelft 0.0.1 documentation" href="index.html"/>
+    <link rel="top" title="PODS 0.0.1 documentation" href="index.html"/>
         <link rel="next" title="Quick Start" href="quickstart.html"/>
-        <link rel="prev" title="Welcome to opdelft!" href="index.html"/> 
+        <link rel="prev" title="Welcome to PODS!" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -61,7 +61,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> opdelft
+            <a href="index.html" class="icon icon-home"> PODS
           
 
           
@@ -92,9 +92,9 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Install opdelft</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#preparing-your-system-to-use-opdelft">Preparing your system to use opdelft</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-opdelft-on-your-system">Install <strong>opdelft</strong> on your system</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install PODS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-your-system-to-use-pods">Preparing your system to use PODS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-pods-on-your-system">Install <strong>PODS</strong> on your system</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
@@ -114,7 +114,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">opdelft</a>
+          <a href="index.html">PODS</a>
         
       </nav>
 
@@ -144,7 +144,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Install opdelft</li>
+      <li>Install PODS</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -163,7 +163,7 @@
         <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to opdelft!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Welcome to PODS!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -172,15 +172,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="install-opdelft">
-<span id="howtoinstall"></span><h1>Install opdelft<a class="headerlink" href="#install-opdelft" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="preparing-your-system-to-use-opdelft">
-<h2>Preparing your system to use opdelft<a class="headerlink" href="#preparing-your-system-to-use-opdelft" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="install-pods">
+<span id="howtoinstall"></span><h1>Install PODS<a class="headerlink" href="#install-pods" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preparing-your-system-to-use-pods">
+<h2>Preparing your system to use PODS<a class="headerlink" href="#preparing-your-system-to-use-pods" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><strong>python</strong> &amp; <strong>pySOT</strong></li>
 </ol>
-<p>Before starting you will need to Python installed. Recommend python 2.7 since opdelft was developed and tested based on this verison.
-You will need to have pySOT (0.1.36) installed. Other python module like (poap, scipy, numpy) needed will be installed automatically once the pySOT is installed.</p>
+<p>Before starting you will need to Python installed. Recommend python 2.7 since PODS was developed and tested based on this verison.
+You will need to have pySOT (0.1.36) installed. Other python module like (scipy, numpy， pyDOE) needed will be installed automatically once the pySOT is installed.</p>
+<p>To install the pySOT (0.1.36) package with conda run one of the following:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge pysot
+
+conda install -c conda-forge/label/gcc7 pysot
+</pre></div>
+</div>
+</div></blockquote>
 <p>pySOT is a open source toolbox is for optimization of computationally expensive black-box objective functions.
 more information about pySOT refer to: <a class="reference external" href="https://pysot.readthedocs.io/en/latest/index.html">https://pysot.readthedocs.io/en/latest/index.html</a></p>
 <ol class="arabic simple" start="2">
@@ -191,9 +199,9 @@ more information about pySOT refer to: <a class="reference external" href="https
 <p>The Delft3D installation manual on both windows and linux links to <a class="reference external" href="https://content.oss.deltares.nl/delft3d/manuals/Delft3D-Installation_Manual.pdf">https://content.oss.deltares.nl/delft3d/manuals/Delft3D-Installation_Manual.pdf</a></p>
 <p>You may also want to compile the open source on your platform. The instruction links to <a class="reference external" href="https://oss.deltares.nl/c/document_library/get_file?uuid=e3bf2d05-f59f-4d4a-8c13-97bcbaa84060&amp;groupId=21119">https://oss.deltares.nl/c/document_library/get_file?uuid=e3bf2d05-f59f-4d4a-8c13-97bcbaa84060&amp;groupId=21119</a></p>
 </div>
-<div class="section" id="install-opdelft-on-your-system">
-<h2>Install <strong>opdelft</strong> on your system<a class="headerlink" href="#install-opdelft-on-your-system" title="Permalink to this headline">¶</a></h2>
-<p>There are two options to install opdelft</p>
+<div class="section" id="install-pods-on-your-system">
+<h2>Install <strong>PODS</strong> on your system<a class="headerlink" href="#install-pods-on-your-system" title="Permalink to this headline">¶</a></h2>
+<p>There are two options to install PODS</p>
 <ol class="arabic simple">
 <li>install from repostitory with setup.py</li>
 </ol>
@@ -201,7 +209,7 @@ more information about pySOT refer to: <a class="reference external" href="https
 <div class="line">1.1. Clone the repository:</div>
 </div>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/louisXW/opdelft.git
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/louisXW/PODS.git
 </pre></div>
 </div>
 </div></blockquote>
@@ -209,12 +217,12 @@ more information about pySOT refer to: <a class="reference external" href="https
 <div class="line">1.2. Navigate to the folder with setup.py file:</div>
 </div>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> opdelft/opdelft
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> PODS
 </pre></div>
 </div>
 </div></blockquote>
 <div class="line-block">
-<div class="line">1.3. Install opdelft with setup.py if you have admister root</div>
+<div class="line">1.3. Install PODS with setup.py if you have admister root</div>
 </div>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py install
@@ -222,7 +230,7 @@ more information about pySOT refer to: <a class="reference external" href="https
 </div>
 </div></blockquote>
 <div class="line-block">
-<div class="line">1.4. Most cases you might work on a remote workstation without root. Install opdelft with setup.py locally</div>
+<div class="line">1.4. Most cases you might work on a remote workstation without root. Install PODS with setup.py locally</div>
 </div>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py install --user
@@ -232,7 +240,7 @@ more information about pySOT refer to: <a class="reference external" href="https
 <ol class="arabic" start="2">
 <li><p class="first">install with pip (option avaiable onece the repository is public)</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pySOT
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install PODS
 </pre></div>
 </div>
 </div></blockquote>
@@ -254,7 +262,7 @@ more information about pySOT refer to: <a class="reference external" href="https
         <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to opdelft!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Welcome to PODS!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -296,8 +304,7 @@ more information about pySOT refer to: <a class="reference external" href="https
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/language_data.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script type="text/javascript" src="_static/jquery.fancybox.min.js"></script>
 
   

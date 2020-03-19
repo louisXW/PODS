@@ -1,23 +1,23 @@
 Quick Start
 ===========
 
-Once the opdelft module and the dependencies are installed. You can quick start with the examples set in the opdelft package.
+Once the PODS module and the dependencies are installed. You can quick start with the examples set in the PODS package.
 
 There are few simple examples you can start with to get familar with how to work with a real problems with advanced optimizaiton algorithms e.g., pySOT.
 
-To run the examples inside opdelft.
+To run the examples inside PODS.
 
 1. Navigate to the examples folder
 
    .. code-block:: bash
    
-		cd opdelft/examples
+		cd PODS/examples
 		
 2. Open any of the examles_*.py file and modified the envrionemtnal variable accordingly.
 
 	   .. code-block:: bash
 	   
-			data.home_dir = 'THE_DIR_WHERE_YOUR_SAVE_OPDELFT/opdelft/examples/'  
+			data.home_dir = 'THE_DIR_WHERE_YOUR_SAVE_PODS/PODS/examples/'  
 
 3. Specify the path of delft3d /bin folder for the executable file (*.sh) inside the model.
 

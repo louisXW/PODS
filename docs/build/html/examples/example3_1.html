@@ -183,7 +183,71 @@
            <div itemprop="articleBody">
             
   <div class="section" id="single-objective-problem">
-<h1>Single Objective Problem<a class="headerlink" href="#single-objective-problem" title="Permalink to this headline">¶</a></h1>
+<span id="example3-1"></span><h1>Single Objective Problem<a class="headerlink" href="#single-objective-problem" title="Permalink to this headline">¶</a></h1>
+<p>This is an demo to use the Differential Evolution in parallel for the calibraiton of the Delft3D problem with Single Objective Problem.</p>
+<ol class="arabic simple">
+<li>Import the differential evolution module and the optimization problem module.</li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opdelft.algorithms.differential_evoluation._differentialevolution</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">opdelft.problems.real_functions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Define the objective evaluation function obj_func(). This function will be called by the optimizaiton algorithm (master) to do evaluation. Users need to set up the home_dir which will be used to nevigate the dir for simualtion evaluations</li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj_func</span><span class="p">(</span><span class="n">paramters</span><span class="p">):</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">delft3d_1objs</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">simid</span><span class="p">,</span> <span class="n">iterid</span> <span class="o">=</span> <span class="n">paramters</span>
+        <span class="n">simid</span> <span class="o">=</span> <span class="n">simid</span>
+        <span class="n">iterid</span> <span class="o">=</span> <span class="n">iterid</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">home_dir</span> <span class="o">=</span> <span class="s1">&#39;/Users/xiawei/Desktop/opdelft/examples/&#39;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">objfunction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">simid</span><span class="p">,</span> <span class="n">iterid</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Defin the main() function. Set up the configuration of the algorithms.</li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+        <span class="c1"># -----------Initilizae logging-----------------#</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./logfiles&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;logfiles&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./logfiles/test_simple.log&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;./logfiles/test_simple.log&quot;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;./logfiles/test_simple.log&quot;</span><span class="p">,</span>
+                                                <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+        <span class="c1"># -----------Initilizae result saving-----------------#</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./result&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;result&quot;</span><span class="p">)</span>
+
+                <span class="sd">&quot;&quot;&quot; histroy_data folder is needed when you need to</span>
+<span class="sd">                save the simultion output of each evaluation&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./result/history_data&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">&quot;./result/history_data&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./result/history_data&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;./result/history_data&quot;</span><span class="p">)</span>
+
+                <span class="sd">&quot;&quot;&quot; pysot_tesult.txt file is for saving the objective</span>
+<span class="sd">                function value and parameter vector of each evaluations&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;./result/pde_result.txt&quot;</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;./result/pde_result.txt&quot;</span><span class="p">)</span>
+
+        <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./result/pde_result.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Iteration</span><span class="se">\t</span><span class="s2">SimID</span><span class="se">\t</span><span class="s2">Obj</span><span class="se">\t</span><span class="s2">Parmaters</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">delft3d_1objs</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">home_dir</span> <span class="o">=</span> <span class="s1">&#39;/Users/xiawei/Desktop/opdelft/examples/&#39;</span>
+
+        <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">)]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">differential_evolution</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span><span class="n">data</span><span class="p">,</span> <span class="n">bounds</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">popsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;latinhypercube&#39;</span><span class="p">)</span>
+        <span class="k">print</span>  <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">fun</span>
+</pre></div>
+</div>
 </div>
 
 

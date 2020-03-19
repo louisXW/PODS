@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Postposing &mdash; PODS 0.0.1 documentation</title>
+  <title>Objective Function &mdash; PODS 0.0.1 documentation</title>
   
 
   
@@ -42,8 +42,8 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="PODS 0.0.1 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="index.html"/>
-        <link rel="next" title="Convert NEFIS to DAT" href="convert_his2dat.html"/>
-        <link rel="prev" title="Objective Function" href="objectivefunction.html"/> 
+        <link rel="next" title="Postposing" href="postposing.html"/>
+        <link rel="prev" title="Parallelization" href="parallelization.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -98,11 +98,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="algorithms/index.html">Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="objectivefunction.html">Objective Function</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Postposing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="convert_his2dat.html">Convert NEFIS to DAT</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Objective Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#goodness-of-fit">Goodness of fit</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="postposing.html">Postposing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
@@ -152,13 +152,13 @@
         
           <li><a href="index.html">Tutorials</a> &raquo;</li>
         
-      <li>Postposing</li>
+      <li>Objective Function</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/tutorials/postposing.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/tutorials/objectivefunction.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,10 +168,10 @@
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
       
-        <a href="convert_his2dat.html" class="btn btn-neutral float-right" title="Convert NEFIS to DAT" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="postposing.html" class="btn btn-neutral float-right" title="Postposing" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="objectivefunction.html" class="btn btn-neutral" title="Objective Function" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="parallelization.html" class="btn btn-neutral" title="Parallelization" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
   </div>
   
@@ -180,12 +180,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="postposing">
-<span id="id1"></span><h1>Postposing<a class="headerlink" href="#postposing" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="convert_his2dat.html">Convert NEFIS to DAT</a></li>
-</ul>
+  <div class="section" id="objective-function">
+<span id="objectivefunction"></span><h1>Objective Function<a class="headerlink" href="#objective-function" title="Permalink to this headline">¶</a></h1>
+<p>To sovle problems with multiple objectives with singale objective optimizaiton methods the traditional way is add multiple objectives into a singale objective funcction with a definted weight.</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\text{objective function}(X) := \sum\limits_{k \in K}{w_k * f_k(X)}\]</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>where</dt>
+<dd><span class="math notranslate nohighlight">\(X\)</span> is the parameter vector for the evalution function.
+<span class="math notranslate nohighlight">\(w_k\)</span> is the weight given for the <span class="math notranslate nohighlight">\(k^{th}\)</span> objective funciton <span class="math notranslate nohighlight">\(f_k(X)\)</span>.
+<span class="math notranslate nohighlight">\(K\)</span> is a set of objectives.</dd>
+</dl>
+<div class="section" id="goodness-of-fit">
+<h2>Goodness of fit<a class="headerlink" href="#goodness-of-fit" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -199,10 +208,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="convert_his2dat.html" class="btn btn-neutral float-right" title="Convert NEFIS to DAT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="postposing.html" class="btn btn-neutral float-right" title="Postposing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="objectivefunction.html" class="btn btn-neutral" title="Objective Function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="parallelization.html" class="btn btn-neutral" title="Parallelization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

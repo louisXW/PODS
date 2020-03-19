@@ -1,105 +1,80 @@
+.. _example2_1:
+
 Single Objective Problem
 ========================
 
+This is an demo to use the DYCORS in parallel for the calibraiton of the Delft3D problem with Single Objective Problem. The experiment setting is the same with example in :ref:`example1`. Users just need to change the parameter nthreads to be the number of parallel processors that users want to use.
+
 .. code-block:: python
 
-	from opdelft.algorithms.pySOT.experimental_design import SymmetricLatinHypercube
-	from opdelft.algorithms.pySOT.sot_sync_strategies import SyncStrategyNoConstraintsMutipro
-	from opdelft.algorithms.pySOT.rbf import RBFInterpolant, CubicKernel, LinearTail
-	from opdelft.algorithms.pySOT.adaptive_sampling import CandidateDYCORS
+	def main():
+		# -----------Initilizae logging-----------------#
+		if not os.path.exists("./logfiles"):
+			os.makedirs("logfiles")
+		if os.path.exists("./logfiles/test_simple.log"):
+			os.remove("./logfiles/test_simple.log")
+		logging.basicConfig(filename="./logfiles/test_simple.log",
+							level=logging.INFO)
 
-	from opdelft.algorithms.poap.controller import MultiproController
-	import numpy as np
-	import os
-	import logging
-	from opdelft.problems.real_functions import *
+		# -----------Initilizae result saving-----------------#
+		if not os.path.exists("./result"):
+			os.makedirs("result")
 
-def obj_func(paramters):
-    """
-    The function for objective function evaluation.
-    :param paramters: A tuple (x, simid, iterid)
-        x: the dim dimensional parameter vector
-        simid: the index of simulation ID in each iteration
-        iterid: the index of iteration ID
-        simid and iterid is used control a batch of simulations running simultaneously in each iteration.
-    :return: the objective function value [subobj1, subobj2] (a list of multiple sub objectives)
-    """
-    data = delft3d_1objs(dim=4) #Initializaiton for the problem class
-    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
-    x, simid, iterid = paramters
-    simid = simid
-    iterid = iterid
-    result = data.objfunction(x, simid, iterid)
-    return result
+			""" histroy_data folder is needed when you need to 
+			save the simultion output of each evaluation"""
+		if os.path.exists("./result/history_data"):
+			os.rmdir("./result/history_data")
+		if not os.path.exists("./result/history_data"):
+			os.makedirs("./result/history_data")
 
-def main():
-    # -----------Initilizae logging-----------------#
-    if not os.path.exists("./logfiles"):
-        os.makedirs("logfiles")
-    if os.path.exists("./logfiles/test_simple.log"):
-        os.remove("./logfiles/test_simple.log")
-    logging.basicConfig(filename="./logfiles/test_simple.log",
-                        level=logging.INFO)
+			""" pysot_tesult.txt file is for saving the objective 
+			function value and parameter vector of each evaluations"""
+		if os.path.exists("./result/pysot_result.txt"):
+			os.remove("./result/pysot_result.txt")
 
-    # -----------Initilizae result saving-----------------#
-    if not os.path.exists("./result"):
-        os.makedirs("result")
+		fp = open("./result/pysot_result.txt", "a")
+		fp.write("Iteration\tSimID\tObj\tParmaters\n")
+		fp.close()
 
-        """ histroy_data folder is needed when you need to 
-        save the simultion output of each evaluation"""
-    if os.path.exists("./result/history_data"):
-        os.rmdir("./result/history_data")
-    if not os.path.exists("./result/history_data"):
-        os.makedirs("./result/history_data")
+		# -----------set the threads and budget-----------------#
+		nthreads = 4 # set this to the nubmer of parallel processors that users want to use.
+		maxeval = 80
+		nsamples = nthreads
 
-        """ pysot_tesult.txt file is for saving the objective 
-        function value and parameter vector of each evaluations"""
-    if os.path.exists("./result/pysot_result.txt"):
-        os.remove("./result/pysot_result.txt")
+		# (1) Initilize the Optimization problem
+		data = delft3d_1objs(dim=4)
+		logging.info(data.info)
+		data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
 
-    fp = open("./result/pysot_result.txt", "a")
-    fp.write("Iteration\tSimID\tObj\tParmaters\n")
-    fp.close()
+		# (2) Experimental design
+		# Use a symmetric Latin hypercube with 2d + 1 samples
+		exp_des = SymmetricLatinHypercube(dim=data.dim, npts=12)
 
-    # -----------set the threads and budget-----------------#
-    nthreads = 4
-    maxeval = 80
-    nsamples = nthreads
+		# (3) Surrogate model
+		# Use a cubic RBF interpolant with a linear tail
+		surrogate = RBFInterpolant(kernel=CubicKernel, tail=LinearTail, maxp=maxeval)
 
-    # (1) Initilize the Optimization problem
-    data = delft3d_1objs(dim=4)
-    logging.info(data.info)
-    data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
+		# (4) Adaptive sampling
+		adapt_samp = CandidateDYCORS(data=data, numcand=1000 * data.dim)
 
-    # (2) Experimental design
-    # Use a symmetric Latin hypercube with 2d + 1 samples
-    exp_des = SymmetricLatinHypercube(dim=data.dim, npts=12)
+		# (5) Use the multiprocessing-based sychronous strategy without non-bound constraints
+		strategy = SyncStrategyNoConstraintsMutipro(obj_func,
+													worker_id=0, data=data, maxeval=maxeval, nsamples=nsamples,
+													exp_design=exp_des, response_surface=surrogate,
+													sampling_method=adapt_samp)
 
-    # (3) Surrogate model
-    # Use a cubic RBF interpolant with a linear tail
-    surrogate = RBFInterpolant(kernel=CubicKernel, tail=LinearTail, maxp=maxeval)
+		# (6) Use the multiprocessing-based sychronous controller
+		controller = MultiproController()
+		controller.strategy = strategy
 
-    # (4) Adaptive sampling
-    adapt_samp = CandidateDYCORS(data=data, numcand=1000 * data.dim)
-
-    # (5) Use the multiprocessing-based sychronous strategy without non-bound constraints
-    strategy = SyncStrategyNoConstraintsMutipro(obj_func,
-                                                worker_id=0, data=data, maxeval=maxeval, nsamples=nsamples,
-                                                exp_design=exp_des, response_surface=surrogate,
-                                                sampling_method=adapt_samp)
-
-    # (6) Use the multiprocessing-based sychronous controller
-    controller = MultiproController()
-    controller.strategy = strategy
-
-    # Run the optimization strategy
-    result = controller.run()
-    print "result", result
+		# Run the optimization strategy
+		result = controller.run()
+		print "result", result
 
 
 
-if __name__ == "__main__":
-   main()
+	if __name__ == "__main__":
+	   main()
 
 
 
