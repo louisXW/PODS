@@ -47,7 +47,7 @@ This is an demo to use the PODS in parallel for the calibraiton of the Delft3D p
 		data.home_dir = '/Users/xiawei/Desktop/opdelft/examples/'
 
 		# (2) Experimental design
-		# Use a symmetric Latin hypercube with 2d + 1 samples
+		# Use a symmetric Latin hypercube with n0 samples where n0 is a multiple of P and n0 is larger or equal to 2(dim+1)
 		exp_des = SymmetricLatinHypercube(dim=data.dim, npts=12)
 
 		# (3) Surrogate model
