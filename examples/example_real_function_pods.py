@@ -71,7 +71,7 @@ def main():
     data.home_dir = '/Users/xiawei/Desktop/pods/examples/'
 
     # (2) Experimental design
-    # Use a symmetric Latin hypercube with 2d + 1 samples
+    # Use a symmetric Latin hypercube with n0 samples where n0 is a multiple of P and n0 is larger or equal to 2(d+1)
     exp_des = SymmetricLatinHypercube(dim=data.dim, npts=12)
 
     # (3) Surrogate model
