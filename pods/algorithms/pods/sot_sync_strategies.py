@@ -123,6 +123,8 @@ class SyncStrategyNoConstraintsMutipro(object):
         self.xbest = None
         self.fbest = np.inf
         self.fbest_old = None
+        self.fbest_global = np.inf
+        self.xbest_global = None
 
         # Set up search procedures and initialize
         self.sampling = sampling_method
@@ -200,7 +202,7 @@ class SyncStrategyNoConstraintsMutipro(object):
                             precision=5, suppress_small=True)
         print(xstr)
 
-        logger.info("{} {:.3e} @ {}".format("False", obj, xstr))
+        logger.info("{} {:.3e} @ {}".format("True", obj, xstr))
 
     def adjust_step(self):
         """Adjust the sampling radius sigma.
@@ -245,6 +247,7 @@ class SyncStrategyNoConstraintsMutipro(object):
         self.fhat.reset()
         self.sigma = self.sigma_init
         self.status = 0
+        self.failcount = 0
         self.xbest = None
         self.fbest_old = None
         self.fbest = np.inf
@@ -260,7 +263,8 @@ class SyncStrategyNoConstraintsMutipro(object):
         genid = []
         for j in range(min(start_sample.shape[0], self.maxeval - self.numeval)):
             start_sample[j, :] = self.proj_fun(start_sample[j, :])  # Project onto feasible region
-            self.iteration = j // self.nsamples + 1        #Modified 2017 09 18
+            if self.numeval == 0:
+                self.iteration = j // self.nsamples + 1        #Modified 2017 09 18
             # proposal = self.propose_eval(np.copy(start_sample[j, :]), j, self.iteration)    #Modified 2017 09 18
             params.append(np.copy(start_sample[j, :]))
             simid.append(j % self.nsamples)
@@ -337,6 +341,9 @@ class SyncStrategyNoConstraintsMutipro(object):
             if item < self.fbest:
                 self.xbest = parameters[indx]
                 self.fbest = item
+        if self.fbest < self.fbest_global:
+        self.fbest_global = self.fbest
+        self.xbest_global = self.xbest
 
         print ("fbest_old", self.fbest_old)
         print ("fbest", self.fbest)
