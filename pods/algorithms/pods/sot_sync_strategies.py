@@ -342,8 +342,8 @@ class SyncStrategyNoConstraintsMutipro(object):
                 self.xbest = parameters[indx]
                 self.fbest = item
         if self.fbest < self.fbest_global:
-        self.fbest_global = self.fbest
-        self.xbest_global = self.xbest
+            self.fbest_global = self.fbest
+            self.xbest_global = self.xbest
 
         print ("fbest_old", self.fbest_old)
         print ("fbest", self.fbest)
