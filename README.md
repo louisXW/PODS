@@ -18,7 +18,7 @@ To install the pySOT (0.1.36) package with conda run one of the following:
 
 ```
 
-		conda install -c conda-forge pysot
+		conda install -c conda-forge pysot==0.1.36
 ```
 or
 ```
