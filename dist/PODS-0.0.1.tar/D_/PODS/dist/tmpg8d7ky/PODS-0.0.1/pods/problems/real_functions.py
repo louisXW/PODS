@@ -7,8 +7,8 @@ import sys
 import logging
 import copy
 
-from opdelft.util.goodness_of_fit_metrics import Metrics
-from opdelft.util.post_analysis import Postprocessing
+from pods.util.goodness_of_fit_metrics import Metrics
+from pods.util.post_analysis import Postprocessing
 
 class delft3d_flow:
     #  Global optimum: f(0,0,...,0)=0

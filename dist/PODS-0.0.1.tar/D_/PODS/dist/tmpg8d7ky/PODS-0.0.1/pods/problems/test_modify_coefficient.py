@@ -1,4 +1,4 @@
-from opdelft.problems.real_functions import *
+from pods.problems.real_functions import *
 import filecmp
 
 def test_modify_coefficient():

@@ -31,7 +31,7 @@ class MultiproController(object):
         while True:
             current_time = time.time()
             if self.strategy.numeval >= self.strategy.maxeval or (current_time - self.strategy.start_time) >= self.strategy.time_budget:
-                return "The total calibration finished", self.strategy.fbest, self.strategy.xbest
+                return "The total calibration finished", self.strategy.fbest_global, self.strategy.xbest_global
                 break
 
             else:
