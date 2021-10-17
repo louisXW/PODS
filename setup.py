@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="PODS",
-    version="0.0.1",
+    version="0.0.2",
     author="xia wei",
     author_email="xiawei@u.nus.edu",
     description="An optimization toolbox for expensive model optimization problems",

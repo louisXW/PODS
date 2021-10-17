@@ -191,16 +191,15 @@ class SyncStrategyNoConstraintsMutipro(object):
         x = np.atleast_2d(x)
         return round_vars(self.data, x)
 
-    def log_completion(self, obj, x):
+    def log_completion(self, obj, x, simid, iterid):
         """Record a completed evaluation to the log.
 
         :param record: Record of the function evaluation
         :type record: Object
         """
-
         xstr = np.array_str(x, max_line_width=np.inf,
                             precision=5, suppress_small=True)
-        print(xstr)
+        print("{} {:.3e} @ {}".format("evaluated simulation %s:"%(simid), obj, xstr))
 
         logger.info("{} {:.3e} @ {}".format("True", obj, xstr))
 
@@ -241,9 +240,11 @@ class SyncStrategyNoConstraintsMutipro(object):
 
         if self.numeval == 0:
             logger.info("=== Start ===")
+            print("=== Start ===")
             self.iteration = 1  #modified 2017 09 18
         else:
             logger.info("=== Restart ===")
+            print("=== Restart ===")
         self.fhat.reset()
         self.sigma = self.sigma_init
         self.status = 0
@@ -256,16 +257,17 @@ class SyncStrategyNoConstraintsMutipro(object):
         start_sample = self.design.generate_points()
         assert start_sample.shape[1] == self.data.dim, \
             "Dimension mismatch between problem and experimental design"
+        assert start_sample.shape[0] % self.nsamples == 0, \
+            "set npts in experimental_design to be multiple of nsamples"
         start_sample = from_unit_box(start_sample, self.data)
 
         params = []
         simid = []
         genid = []
+        iteration_pre = self.iteration
         for j in range(min(start_sample.shape[0], self.maxeval - self.numeval)):
             start_sample[j, :] = self.proj_fun(start_sample[j, :])  # Project onto feasible region
-            if self.numeval == 0:
-                self.iteration = j // self.nsamples + 1        #Modified 2017 09 18
-            # proposal = self.propose_eval(np.copy(start_sample[j, :]), j, self.iteration)    #Modified 2017 09 18
+            self.iteration = j // self.nsamples + iteration_pre
             params.append(np.copy(start_sample[j, :]))
             simid.append(j % self.nsamples)
             genid.append(self.iteration)
@@ -277,11 +279,10 @@ class SyncStrategyNoConstraintsMutipro(object):
             batch_last = (batch_id + 1) * nprocessors
 
             paramters = zip(params[batch_first: batch_last], simid[batch_first: batch_last], genid[batch_first: batch_last])
-            print (paramters)
             pool = multiprocessing.Pool(nprocessors)
             objfuns = pool.map(self.obj_func, paramters)
             pool.terminate()
-            self.on_complete(objfuns, params[batch_first: batch_last])
+            self.on_complete(objfuns, paramters)
 
         if self.extra is not None:
             self.sampling.init(np.vstack((start_sample, self.extra)), self.fhat, self.maxeval - self.numeval)
@@ -310,7 +311,7 @@ class SyncStrategyNoConstraintsMutipro(object):
         paramters = zip(params, simid, genid)
         objfuns = pool.map(self.obj_func, paramters)
         pool.terminate()
-        self.on_complete(objfuns, params)
+        self.on_complete(objfuns, paramters)
 
     def start_batch(self):
         """Generate and queue a new batch of points"""
@@ -333,17 +334,19 @@ class SyncStrategyNoConstraintsMutipro(object):
         :type record: Object
         """
         self.numeval += np.size(objfuns, 0)
+        params = zip(*parameters)[0]
+        simids = zip(*parameters)[1]
+        iterids = zip(*parameters)[2]
 
         # Record calculated evaluations into a history list
         for indx, item in enumerate(objfuns):
-            self.log_completion(item, parameters[indx])
-            self.fhat.add_point(parameters[indx], item)
+            self.log_completion(item, params[indx], simids[indx], iterids[indx])
+            self.fhat.add_point(params[indx], item)
             if item < self.fbest:
-                self.xbest = parameters[indx]
+                self.xbest = params[indx]
                 self.fbest = item
         if self.fbest < self.fbest_global:
             self.fbest_global = self.fbest
             self.xbest_global = self.xbest
 
-        print ("fbest_old", self.fbest_old)
-        print ("fbest", self.fbest)
+        print ("Iteration: %s previous fbest: %s new fbest: %s "%(iterids[-1], self.fbest_old, self.fbest))
