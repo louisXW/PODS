@@ -4,6 +4,8 @@
 
 An python-based optimization toolbox for computing expensive problems. PODS package including 1) a standalone PODS algorithm code; 2) examples using PODS with test function; 3) examples using PODS with expensive simulaiton problems (e.g., Deflt3D-FLOW). The documentation of PODS refer to https://louisxw.github.io/PODS/
 
+PODS can be incorportated with Dynamically Normalized objective function (DYNO) for multi-variable (i.e., temperature and velocity) model calibration problems. For how to use PODS with DYNO see https://github.com/louisXW/DYNO-pods/. DYNO combines the error metrics of multiple variables into a single objective function by dynamically normalizing each variable's error terms using information available during the search. DYNO is proposed to dynamically adjust the weight of the error of each variable hence balancing the calibration to each variable during optimization search. 
+
 ## Install
 
 Preparing your system to use PODS
@@ -90,5 +92,20 @@ If you use PODS, please cite the following paper: Xia, W., Shoemaker, C., Akhtar
   year={2021},
   publisher={Elsevier}
 }	
+```
+
+If you use DYNO-pods, please cite the following paper: Xia, W., Akhtar, T., and Shoemaker, A.C. (2022): A novel objective function DYNO for automatic multivariable calibration of 3D lake models. Hydrology and Earth System Sciences, 26(13), 3651-3671. https://doi.org/10.5194/hess-26-3651-2022. 
+
+```
+@article{xia2022novel,
+  title={A novel objective function DYNO for automatic multivariable calibration of 3D lake models},
+  author={Xia, Wei and Akhtar, Taimoor and Shoemaker, Christine A},
+  journal={Hydrology and Earth System Sciences},
+  volume={26},
+  number={13},
+  pages={3651--3671},
+  year={2022},
+  publisher={Copernicus GmbH}
+}
 ```
 
